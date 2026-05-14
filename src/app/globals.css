@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: #030303;
+  --color-surface: #111111;
+  --color-surface-hover: #1a1a1a;
+  --color-surface-elevated: #1d1d1d;
+  --color-accent: #1db954;
+  --color-accent-hover: #169c46;
+  --color-foreground: #ffffff;
+  --color-muted: #a0a0a0;
+  --color-border: #222222;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #333 transparent;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* Card stack effect for Tinder-like preview */
+@utility card-stack {
+  position: relative;
+  & > * {
+    position: absolute;
+    width: 100%;
+  }
+  & > :nth-child(1) {
+    transform: rotate(-3deg) translateY(-8px);
+  }
+  & > :nth-child(2) {
+    transform: rotate(2deg) translateY(-4px);
+  }
+  & > :nth-child(3) {
+    transform: rotate(0deg);
+  }
+}
+
+/* Smooth gradient text */
+@utility gradient-text {
+  background: linear-gradient(135deg, #1db954, #1ed760);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass effect for cards */
+@utility glass {
+  background: rgba(17, 17, 17, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
