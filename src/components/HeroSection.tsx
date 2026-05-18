@@ -29,13 +29,13 @@ export default function HeroSection() {
         {/* CTA buttons */}
         <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
           <a
-            href="#"
+            href="/login"
             className="inline-flex h-12 w-full items-center justify-center rounded-full bg-accent px-8 text-sm font-bold text-black transition-all hover:bg-accent-hover hover:scale-105 sm:w-auto"
           >
             Get Started Free
           </a>
           <a
-            href="#"
+            href="/discover"
             className="inline-flex h-12 w-full items-center justify-center rounded-full border border-border px-8 text-sm font-medium text-foreground transition-all hover:bg-surface sm:w-auto"
           >
             See How It Works

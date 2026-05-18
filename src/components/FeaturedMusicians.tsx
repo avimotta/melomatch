@@ -98,7 +98,7 @@ export default function FeaturedMusicians() {
       {/* View all */}
       <div className="mt-10 text-center">
         <a
-          href="#"
+          href="/discover"
           className="inline-flex items-center gap-2 text-sm font-medium text-accent transition-all hover:gap-3"
         >
           View all musicians

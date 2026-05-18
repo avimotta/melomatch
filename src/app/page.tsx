@@ -39,7 +39,7 @@ export default function Home() {
                 and creating together.
               </p>
               <a
-                href="#"
+                href="/login"
                 className="mt-8 inline-flex h-12 items-center justify-center rounded-full bg-accent px-8 text-sm font-bold text-black transition-all hover:bg-accent-hover hover:scale-105"
               >
                 Create Your Profile

@@ -23,13 +23,18 @@ export default function Footer() {
               Platform
             </h4>
             <ul className="space-y-3">
-              {["Discover", "Messages", "Events", "Premium"].map((l) => (
-                <li key={l}>
+              {[
+                { label: "Discover", href: "/discover" },
+                { label: "Messages", href: "#" },
+                { label: "Events", href: "#" },
+                { label: "Premium", href: "#" },
+              ].map((l) => (
+                <li key={l.label}>
                   <a
-                    href="#"
+                    href={l.href}
                     className="text-sm text-muted transition-colors hover:text-foreground"
                   >
-                    {l}
+                    {l.label}
                   </a>
                 </li>
               ))}
