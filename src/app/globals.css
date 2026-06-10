@@ -1,60 +1,234 @@
 @import "tailwindcss";
 
+/* ═════════════════════════════════════════════════════════════════════
+   MeloMatch — Editorial Design System
+   
+   Direction:  Contemporary editorial / indie magazine
+   Philosophy: Asymmetrical layouts, strong typographic hierarchy,
+               generous whitespace, fewer cards, focus on the artist
+   Vibe:       Independent music culture, album artwork,
+               modern editorial design, creative community
+   ═════════════════════════════════════════════════════════════════════ */
+
 @theme inline {
-  --color-background: #030303;
-  --color-surface: #111111;
-  --color-surface-hover: #1a1a1a;
-  --color-surface-elevated: #1d1d1d;
-  --color-accent: #1db954;
-  --color-accent-hover: #169c46;
-  --color-foreground: #ffffff;
-  --color-muted: #a0a0a0;
-  --color-border: #222222;
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* ── BACKGROUND: BEIGE CÁLIDO (CLAVE DEL CAMBIO) ── */
+  --color-background: #F5EDE3;   /* beige suave, papel */
+  --color-surface: #F9F9F9;      /* cards limpias */
+  --color-surface-hover: #F2E7DA;
+  --color-surface-elevated: #F9F9F9;
+
+  /* ── ACCENT PRINCIPAL: ROSA VIEJO / TERRACOTA ── */
+  --color-accent: #C07A7A;       /* rosa viejo */
+  --color-accent-light: #D19A9B;
+  --color-accent-hover: #B86B6B;
+  --color-accent-subtle: rgba(192, 122, 122, 0.12);
+
+  /* ── SECUNDARIO: LILA SUAVE ── */
+  --color-accent-secondary: #A892C2;
+  --color-accent-secondary-light: #C7B6DD;
+  --color-accent-secondary-subtle: rgba(168, 146, 194, 0.15);
+
+  --color-foreground: #C07A7A;
+  --color-muted: #6E625A;
+  --color-muted-light: #9A8E84;
+  --color-muted-dim: #B3A79D;
+
+  --color-border: #E3D5C7;
+  --color-border-light: #D6C5B4;
+
+  /* ── ERROR (SUAVE) ── */
+  --color-danger: #C97C7C;
+  --color-danger-subtle: rgba(201, 124, 124, 0.12);
 }
+
+/* ═════════════════════════════════════════════════════════════════════
+   BASE
+   ═════════════════════════════════════════════════════════════════════ */
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: #333 transparent;
+  scrollbar-color: #36353A transparent;
 }
 
 body {
   background: var(--color-background);
   color: var(--color-foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
+  letter-spacing: 0.01em;
+  line-height: 1.7;
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
 }
 
-/* Card stack effect for Tinder-like preview */
-@utility card-stack {
-  position: relative;
-  & > * {
-    position: absolute;
-    width: 100%;
-  }
-  & > :nth-child(1) {
-    transform: rotate(-3deg) translateY(-8px);
-  }
-  & > :nth-child(2) {
-    transform: rotate(2deg) translateY(-4px);
-  }
-  & > :nth-child(3) {
-    transform: rotate(0deg);
-  }
+::selection {
+  background: var(--color-accent);
+  color: var(--color-background);
 }
 
-/* Smooth gradient text */
+/* ═════════════════════════════════════════════════════════════════════
+   COMPONENT UTILITIES
+   ═════════════════════════════════════════════════════════════════════ */
+
+/* ── Card — editorial album-card feel with warm depth ──────────── */
+@utility card {
+  border-radius: 1rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 32px -8px rgba(0, 0, 0, 0.5);
+}
+
+/* ── Elevated card — overlays, dropdowns ──────────────────────── */
+@utility card-elevated {
+  border-radius: 1rem;
+  background: var(--color-surface-elevated);
+  border: 1px solid var(--color-border-light);
+  box-shadow: 0 8px 40px -12px rgba(0, 0, 0, 0.6);
+}
+
+/* ── Editorial heading — tight, bold, expressive ──────────────── */
+@utility heading {
+  letter-spacing: -0.025em;
+  font-weight: 700;
+  line-height: 1.12;
+}
+
+/* ── Editorial display — massive, for hero names ─────────────── */
+@utility heading-display {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  letter-spacing: -0.03em;
+  font-weight: 800;
+  line-height: 1.05;
+}
+
+/* ── Section label — uppercase, wide-spaced, muted ────────────── */
+@utility label {
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-muted-light);
+  font-weight: 500;
+}
+
+/* ── Accent gradient text — dusty plum to warm cream ──────────── */
 @utility gradient-text {
-  background: linear-gradient(135deg, #1db954, #1ed760);
+  background: linear-gradient(
+    135deg,
+    var(--color-accent-secondary),
+    var(--color-accent-light),
+    var(--color-accent)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Glass effect for cards */
+/* ── Soft glass backdrop for nav ───────────────────────────────── */
 @utility glass {
-  background: rgba(17, 17, 17, 0.8);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: color-mix(in srgb, var(--color-background) 88%, transparent);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
+
+/* ── Ambient glow orbs — atmospheric backgrounds ─────────────── */
+@utility accent-glow {
+  background: radial-gradient(circle, color-mix(in srgb, var(--color-accent) 20%, transparent) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(80px);
+}
+
+@utility secondary-glow {
+  background: radial-gradient(circle, color-mix(in srgb, var(--color-accent-secondary) 20%, transparent) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(80px);
+}
+
+/* ── Page atmosphere — subtle warm gradient from top ────────── */
+@utility page-gradient {
+  background: linear-gradient(to bottom, var(--color-surface) 0%, var(--color-background) 100%);
+}
+
+/* ── Section atmosphere — muted surface on background ──────── */
+@utility section-surface {
+  background: var(--color-surface);
+  border-radius: 0.75rem;
+}
+
+/* ── Thin accent rule — editorial page divider ─────────────── */
+@utility accent-rule {
+  border-top: 1px solid color-mix(in srgb, var(--color-accent) 25%, transparent);
+}
+
+/* ═════════════════════════════════════════════════════════════════════
+   BUTTONS — editorial system
+   ═════════════════════════════════════════════════════════════════════ */
+
+/* Outline is the default — secondary, understated, editorial.
+   Filled accent only for the single primary action per page. */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  font-weight: 500;
+  transition: all 0.15s ease;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  font-family: inherit;
+  line-height: 1;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ── Secondary (outline) — THE default button ────────────── */
+.btn-secondary {
+  font-weight: 500;
+  background: transparent;
+  color: var(--color-muted);
+  border: 1px solid var(--color-border);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  border-color: var(--color-accent);
+  color: var(--color-foreground);
+}
+
+/* ── Primary (filled accent) — ONE per page ─────────────── */
+.btn-primary {
+  font-weight: 600;
+  background: var(--color-accent);
+  color: var(--color-background);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--color-accent-hover);
+  transform: scale(1.02);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: scale(1);
+}
+
+
+/* ── Chat bubble — own messages (dusty plum, cream text) ────── */
+@utility bubble-own {
+  background: var(--color-surface);
+  color: var(--color-surface);
+  border-radius: 1.25rem 1.25rem 0.25rem 1.25rem;
+  box-shadow: 0 4px 16px rgba(124, 111, 170, 0.25);
+}
+
+@utility bubble-other {
+  background: #C07A7A;
+  color: #FFFF;
+  border-radius: 1.25rem 1.25rem 1.25rem 0.25rem;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+

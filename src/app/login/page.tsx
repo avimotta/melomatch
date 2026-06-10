@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
+import Link from "next/link";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -18,7 +19,7 @@ export default function LoginPage() {
     setSubmitting(true);
 
     if (mode === "signup") {
-      const { data, error: signUpError } = await supabase.auth.signUp({
+      const { error: signUpError } = await supabase.auth.signUp({
         email,
         password,
       });
@@ -27,26 +28,6 @@ export default function LoginPage() {
         setError(signUpError.message);
         setSubmitting(false);
         return;
-      }
-
-      // Create profile for new user
-      if (data.user) {
-        const { error: profileError } = await supabase
-          .from("profiles")
-          .insert({
-            id: data.user.id,
-            email: data.user.email,
-            name: data.user.email?.split("@")[0],
-            instruments: [],
-            genres: [],
-            location: "",
-            bio: "",
-          });
-
-        if (profileError) {
-          console.error("Profile creation failed:", profileError);
-          // Still redirect — profile can be completed later
-        }
       }
 
       router.push("/discover");
@@ -70,13 +51,17 @@ export default function LoginPage() {
     <main className="flex min-h-screen flex-col items-center justify-center bg-background px-4">
       <div className="w-full max-w-sm">
         {/* Logo */}
-        <a
+        <Link
           href="/"
           className="mb-8 flex items-center justify-center gap-2 text-foreground"
         >
-          <span className="text-2xl">🎵</span>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M9 18V5l12-2v13" />
+            <circle cx="6" cy="18" r="3" />
+            <circle cx="18" cy="16" r="3" />
+          </svg>
           <span className="text-lg font-bold tracking-tight">MeloMatch</span>
-        </a>
+        </Link>
 
         <div className="rounded-xl border border-border bg-surface p-6">
           {/* Tabs */}
@@ -88,8 +73,8 @@ export default function LoginPage() {
               }}
               className={`flex-1 rounded-md px-3 py-2 text-sm font-medium transition-all ${
                 mode === "login"
-                  ? "bg-accent text-black"
-                  : "text-muted hover:text-foreground"
+                  ? "bg-accent text-background"
+                  : "text-foreground"
               }`}
             >
               Log In
@@ -101,8 +86,8 @@ export default function LoginPage() {
               }}
               className={`flex-1 rounded-md px-3 py-2 text-sm font-medium transition-all ${
                 mode === "signup"
-                  ? "bg-accent text-black"
-                  : "text-muted hover:text-foreground"
+                  ? "bg-accent text-background"
+                  : "text-foreground"
               }`}
             >
               Sign Up
@@ -139,7 +124,7 @@ export default function LoginPage() {
             />
 
             {error && (
-              <div className="rounded-lg bg-red-500/10 px-4 py-3 text-sm text-red-400">
+              <div className="rounded-lg bg-danger/10 px-4 py-3 text-sm text-danger">
                 {error}
               </div>
             )}
@@ -147,7 +132,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={submitting}
-              className="mt-2 rounded-full bg-accent py-3 text-sm font-semibold text-black transition-all hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-50"
+              className="mt-2 rounded-full bg-accent py-3 text-sm font-semibold text-background transition-all hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-50"
             >
               {submitting
                 ? "Please wait..."

@@ -1,109 +1,97 @@
+import Link from "next/link";
+import Avatar from "@/components/Avatar";
+
 const featured = [
   {
     name: "Luna Martinez",
     instrument: "Piano / Keys",
     location: "Brooklyn, NY",
-    tags: ["Jazz", "Neo-Soul", "Lo-Fi"],
   },
   {
     name: "David Kim",
     instrument: "Bass Guitar",
     location: "Los Angeles, CA",
-    tags: ["Funk", "Rock", "R&B"],
   },
   {
     name: "Sofia Torres",
     instrument: "Violin",
     location: "Austin, TX",
-    tags: ["Classical", "Folk", "Experimental"],
   },
   {
     name: "Marcus Webb",
     instrument: "Producer / Beatmaker",
     location: "Atlanta, GA",
-    tags: ["Hip-Hop", "Electronic", "Trap"],
   },
   {
     name: "Emma Larsson",
     instrument: "Singer-Songwriter",
     location: "Nashville, TN",
-    tags: ["Folk", "Country", "Acoustic"],
   },
   {
     name: "Ravi Patel",
     instrument: "Tabla / Percussion",
     location: "Toronto, ON",
-    tags: ["World", "Fusion", "Electronic"],
   },
 ];
+
+function ArrowRightIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M5 12h14M12 5l7 7-7 7" />
+    </svg>
+  );
+}
 
 export default function FeaturedMusicians() {
   return (
     <section className="mx-auto max-w-6xl px-6 py-24">
       {/* Section header */}
       <div className="mb-12 text-center">
-        <span className="mb-4 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+        <span className="mb-4 inline-block label">
           Featured
         </span>
-        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+        <h2 className="heading text-3xl sm:text-4xl">
           Musicians Near You
         </h2>
         <p className="mt-4 text-muted">
-          Talented musicians looking to collaborate. Find your perfect match.
+          Talented musicians looking to collaborate. Build your network.
         </p>
       </div>
 
-      {/* Grid */}
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {/* Grid — dashboard-style cards */}
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
         {featured.map((m) => (
-          <a
+          <Link
             key={m.name}
             href="#"
-            className="group rounded-xl border border-border bg-surface p-5 transition-all hover:border-border hover:bg-surface-hover hover:shadow-lg hover:shadow-black/20"
+            className="group"
           >
-            <div className="flex items-start gap-4">
-              {/* Avatar */}
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-accent/10 text-lg font-bold text-accent">
-                {m.name.charAt(0)}
-              </div>
-
-              <div className="min-w-0 flex-1">
-                <h3 className="truncate text-base font-semibold text-foreground">
-                  {m.name}
-                </h3>
-                <p className="truncate text-sm text-muted">{m.instrument}</p>
-                <p className="mt-0.5 text-xs text-muted/70">{m.location}</p>
-              </div>
-
-              <span className="mt-1 text-muted/50 transition-all group-hover:translate-x-0.5 group-hover:text-foreground">
-                →
-              </span>
+            <div className="aspect-square overflow-hidden rounded-xl bg-linear-to-br from-accent-secondary/15 to-surface-elevated transition-all group-hover:ring-2 group-hover:ring-accent-secondary/30">
+              <Avatar
+                avatarUrl={null}
+                id={m.name.toLowerCase().replace(/\s+/g, "-")}
+                alt={m.name}
+                className="h-full w-full object-cover"
+              />
             </div>
-
-            {/* Tags */}
-            <div className="mt-4 flex flex-wrap gap-1.5">
-              {m.tags.map((t) => (
-                <span
-                  key={t}
-                  className="rounded-full bg-white/5 px-2.5 py-1 text-xs font-medium text-muted"
-                >
-                  {t}
-                </span>
-              ))}
-            </div>
-          </a>
+            <p className="mt-2 truncate text-xs font-medium text-foreground group-hover:text-accent-light transition-colors">
+              {m.name}
+            </p>
+            <p className="truncate text-[10px] text-muted-light">{m.instrument}</p>
+            <p className="text-[10px] text-muted-dim">{m.location}</p>
+          </Link>
         ))}
       </div>
 
       {/* View all */}
       <div className="mt-10 text-center">
-        <a
+        <Link
           href="/discover"
-          className="inline-flex items-center gap-2 text-sm font-medium text-accent transition-all hover:gap-3"
+          className="inline-flex items-center gap-2 text-sm font-medium text-accent-light transition-all hover:gap-3"
         >
           View all musicians
-          <span>→</span>
-        </a>
+          <ArrowRightIcon />
+        </Link>
       </div>
     </section>
   );
