@@ -276,7 +276,7 @@ export default function MessagesPage() {
               </p>
               <Link
                 href="/discover"
-                className="mt-6 btn-secondary px-5 py-2 text-sm"
+                className="mt-6 btn-secondary inline-flex rounded-full px-5 py-2 text-sm"
               >
                 Find musicians
               </Link>
@@ -305,7 +305,7 @@ export default function MessagesPage() {
                     <div className="flex items-baseline justify-between gap-2">
                       <div className="flex items-center gap-2 min-w-0">
                         {item.unreadCount > 0 && (
-                          <span className="shrink-0 h-2.5 w-2.5 rounded-full bg-accent-light" />
+                          <span className="shrink-0 h-2.5 w-2.5 rounded-full bg-accent-secondary-light" />
                         )}
                         <h2 className="truncate text-lg font-semibold text-foreground">
                           {item.profile.name ?? "Unknown Musician"}

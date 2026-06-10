@@ -384,7 +384,7 @@ export default function ConversationPage() {
             </p>
             <Link
               href="/messages"
-              className="mt-6 btn-secondary px-5 py-2 text-sm"
+              className="mt-6 btn-secondary inline-flex rounded-full px-5 py-2 text-sm"
             >
               Back to Messages
             </Link>
@@ -405,7 +405,7 @@ export default function ConversationPage() {
             </p>
             <Link
               href="/messages"
-              className="mt-6 btn-secondary px-5 py-2 text-sm"
+              className="mt-6 btn-secondary inline-flex rounded-full px-5 py-2 text-sm"
             >
               Back to Messages
             </Link>

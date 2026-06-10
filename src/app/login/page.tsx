@@ -71,7 +71,7 @@ export default function LoginPage() {
                 setMode("login");
                 setError(null);
               }}
-              className={`flex-1 rounded-md px-3 py-2 text-sm font-medium transition-all ${
+              className={`flex-1 rounded-full px-3 py-2 text-sm font-medium transition-all ${
                 mode === "login"
                   ? "bg-accent text-background"
                   : "text-foreground"
@@ -84,7 +84,7 @@ export default function LoginPage() {
                 setMode("signup");
                 setError(null);
               }}
-              className={`flex-1 rounded-md px-3 py-2 text-sm font-medium transition-all ${
+              className={`flex-1 rounded-full px-3 py-2 text-sm font-medium transition-all ${
                 mode === "signup"
                   ? "bg-accent text-background"
                   : "text-foreground"

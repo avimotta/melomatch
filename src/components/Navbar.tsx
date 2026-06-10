@@ -32,6 +32,7 @@ export default function Navbar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [fetchedAvatarUrl, setFetchedAvatarUrl] = useState<string | null>(null);
   const [unreadCount, setUnreadCount] = useState(0);
+  const [pendingRequestCount, setPendingRequestCount] = useState(0);
   const pathname = usePathname();
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -95,6 +96,43 @@ export default function Navbar() {
     };
   }, [user, pathname]);
 
+  // ── Fetch pending request count ────────────────────────────────
+  useEffect(() => {
+    if (!user) return;
+
+    let cancelled = false;
+
+    const fetchPendingCount = async () => {
+      const { data: connections } = await supabase
+        .from("connections")
+        .select("sender_id, receiver_id")
+        .or(`sender_id.eq.${user.id},receiver_id.eq.${user.id}`);
+
+      if (cancelled || !connections) return;
+
+      const sentIds = new Set<string>();
+      const receivedIds = new Set<string>();
+
+      for (const c of connections) {
+        if (c.sender_id === user.id) sentIds.add(c.receiver_id);
+        if (c.receiver_id === user.id) receivedIds.add(c.sender_id);
+      }
+
+      let pending = 0;
+      for (const id of receivedIds) {
+        if (!sentIds.has(id)) pending++;
+      }
+
+      if (!cancelled) setPendingRequestCount(pending);
+    };
+
+    fetchPendingCount();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [user, pathname]);
+
   return (
     <nav className="fixed top-0 z-50 w-full border-b border-border/30 bg-background/70 backdrop-blur-xl">
       <div className="mx-auto flex h-12 max-w-6xl items-center justify-between px-6">
@@ -111,6 +149,7 @@ export default function Navbar() {
           <NavLink href="/">Home</NavLink>
           <NavLink href="/discover">Discover</NavLink>
           <NavLink href="/messages" badge={displayUnreadCount}>Messages</NavLink>
+          <NavLink href="/requests" badge={pendingRequestCount}>Requests</NavLink>
 
           <div className="flex items-center gap-2 pl-3">
             {loading ? (
@@ -217,6 +256,13 @@ export default function Navbar() {
             >
               Messages
             </MobileNavLink>
+            <MobileNavLink
+              href="/requests"
+              onClick={() => setIsMobileOpen(false)}
+              badge={pendingRequestCount}
+            >
+              Requests
+            </MobileNavLink>
             <hr className="border-border/30" />
 
             {user ? (
@@ -299,7 +345,7 @@ function NavLink({
         <span className="absolute top-0 left-1/2 h-px w-6 -translate-x-1/2 bg-accent" />
       )}
       {badge !== undefined && badge > 0 && (
-        <span className="absolute -top-0.5 -right-3 flex h-3.5 min-w-3.5 items-center justify-center rounded-full bg-accent px-1 text-[9px] font-bold text-background leading-none">
+        <span className="absolute -top-0.5 -right-3 flex h-3.5 min-w-3.5 items-center justify-center rounded-full bg-accent-secondary px-1 text-[9px] font-bold text-background leading-none">
           {badge > 99 ? "99+" : badge}
         </span>
       )}
@@ -335,7 +381,7 @@ function MobileNavLink({
       <span className="inline-flex items-center gap-2">
         {children}
         {badge !== undefined && badge > 0 && (
-          <span className="flex h-3.5 min-w-3.5 items-center justify-center rounded-full bg-accent px-1 text-[9px] font-bold text-background leading-none">
+          <span className="flex h-3.5 min-w-3.5 items-center justify-center rounded-full bg-accent-secondary px-1 text-[9px] font-bold text-background leading-none">
             {badge > 99 ? "99+" : badge}
           </span>
         )}

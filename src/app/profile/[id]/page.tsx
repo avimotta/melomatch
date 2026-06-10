@@ -297,12 +297,20 @@ export default function PublicProfilePage() {
                       Connecting
                     </span>
                   ) : isMatched ? (
-                    <span className="inline-flex items-center gap-1.5 text-xs text-accent-light">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-                      </svg>
-                      Connected
-                    </span>
+                    <div className="flex items-center gap-3">
+                      <span className="inline-flex items-center gap-1.5 text-xs text-accent-light">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                        </svg>
+                        Connected
+                      </span>
+                      <Link
+                        href={"/messages/" + profile.id}
+                        className="rounded-full border border-accent/50 px-5 py-2 text-xs text-accent-light transition-all hover:bg-accent hover:text-background"
+                      >
+                        Send Message
+                      </Link>
+                    </div>
                   ) : isPending ? (
                     <span className="text-xs text-muted-light">Pending</span>
                   ) : (
