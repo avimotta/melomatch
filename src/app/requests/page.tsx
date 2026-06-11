@@ -26,7 +26,7 @@ function UserPlusIcon() {
 type PendingRequest = {
   connectionId: string;
   connectionCreatedAt: string;
-  profile: Pick<Profile, "id" | "name" | "avatar_url" | "instruments" | "genres" | "location" | "bio">;
+  profile: Pick<Profile, "id" | "name" | "avatar_url" | "instruments" | "genres" | "location" | "bio" | "audio_url">;
 };
 
 // ── Helpers ──────────────────────────────────────────────────────
@@ -129,7 +129,7 @@ export default function RequestsPage() {
     // 4. Fetch profiles for pending senders
     const { data: profiles, error: profError } = await supabase
       .from("profiles")
-      .select("id, name, avatar_url, instruments, genres, location, bio")
+      .select("id, name, avatar_url, instruments, genres, location, bio, audio_url")
       .in("id", pendingSenderIds);
 
     if (profError) {

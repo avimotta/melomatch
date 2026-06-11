@@ -18,7 +18,7 @@ import Footer from "@/components/Footer";
 type RecentConnection = {
   profile: Pick<
     Profile,
-    "id" | "name" | "avatar_url" | "instruments" | "genres" | "location"
+    "id" | "name" | "avatar_url" | "instruments" | "genres" | "location" | "audio_url"
   >;
   connectionDate: string;
 };
@@ -176,7 +176,7 @@ function DashboardPage({ userId }: { userId: string }) {
         if (recentMatchedIds.length > 0) {
           const { data: partnerProfiles } = await supabase
             .from("profiles")
-            .select("id, name, avatar_url, instruments, genres, location")
+            .select("id, name, avatar_url, instruments, genres, location, audio_url")
             .in("id", recentMatchedIds);
 
           if (!cancelled && partnerProfiles) {

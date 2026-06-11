@@ -19,6 +19,7 @@ type Profile = {
   looking_for: string[] | null;
   location: string | null;
   bio: string | null;
+  audio_url: string | null;
 };
 
 function MusicNoteIcon() {
@@ -172,7 +173,7 @@ export default function DiscoverPage() {
 
       const { data, error: fetchError } = await supabase
         .from("profiles")
-        .select("id, name, avatar_url, instruments, genres, experience_level, looking_for, location, bio")
+        .select("id, name, avatar_url, instruments, genres, experience_level, looking_for, location, bio, audio_url")
         .order("name", { ascending: true });
 
       if (cancelled) return;

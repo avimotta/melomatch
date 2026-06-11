@@ -168,7 +168,7 @@ export default function ConversationPage() {
       // 1. Fetch the other user's profile
       const { data: profileData, error: profileError } = await supabase
         .from("profiles")
-        .select("id, name, avatar_url, location, bio, instruments, genres, experience_level, looking_for, influences, email")
+        .select("id, name, avatar_url, location, bio, instruments, genres, experience_level, looking_for, influences, email, audio_url")
         .eq("id", profileId)
         .single();
 

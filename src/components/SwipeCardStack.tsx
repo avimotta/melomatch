@@ -11,6 +11,7 @@ type Profile = {
   genres: string[] | null;
   bio: string | null;
   location: string | null;
+  audio_url: string | null;
 };
 
 type SwipeCardStackProps = {

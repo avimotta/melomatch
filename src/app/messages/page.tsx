@@ -35,7 +35,7 @@ type ConnectedProfile = {
   unreadCount: number;
   profile: Pick<
     Profile,
-    "id" | "name" | "avatar_url" | "instruments" | "genres" | "location"
+    "id" | "name" | "avatar_url" | "instruments" | "genres" | "location" | "audio_url"
   >;
 };
 
@@ -146,7 +146,7 @@ export default function MessagesPage() {
       // 4. Fetch profiles for matched partners
       const { data: profiles, error: profError } = await supabase
         .from("profiles")
-        .select("id, name, avatar_url, instruments, genres, location")
+        .select("id, name, avatar_url, instruments, genres, location, audio_url")
         .in("id", matchedIds);
 
       if (cancelled) {
@@ -177,7 +177,7 @@ export default function MessagesPage() {
       }
 
       // 7. Merge — for each matched partner, find the most recent connection date
-      const merged: ConnectedProfile[] = matchedIds
+      const merged = matchedIds
         .map((partnerId) => {
           const profile = profileMap.get(partnerId);
           if (!profile) return null;

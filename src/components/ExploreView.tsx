@@ -13,6 +13,7 @@ type Profile = {
   looking_for: string[] | null;
   location: string | null;
   bio: string | null;
+  audio_url: string | null;
 };
 
 type ExploreViewProps = {
