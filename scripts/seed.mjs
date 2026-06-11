@@ -74,7 +74,7 @@ const USERS = [
     experience_level: "Intermediate",
     looking_for: ["Bandmates", "Songwriting partner"],
     influences: "Spinetta, Natalia Lafourcade, Arctic Monkeys",
-    location: "Buenos Aires, Argentina",
+    location: "Palermo, CABA",
     bio: "Buscando formar una banda de rock alternativo con influencias del indie argentino. Tengo algunas canciones propias y ganas de tocar en vivo.",
   },
   {
@@ -86,7 +86,7 @@ const USERS = [
     experience_level: "Advanced",
     looking_for: ["Band", "Session work"],
     influences: "Tony Allen, Jamiroquai, Herbie Hancock",
-    location: "Córdoba, Argentina",
+    location: "Recoleta, CABA",
     bio: "Baterista de sesión con 10 años de experiencia. Toqué en varias bandas de funk y jazz en Córdoba. Busco proyectos originales para colaborar.",
   },
   {
@@ -98,7 +98,7 @@ const USERS = [
     experience_level: "Advanced",
     looking_for: ["Ensemble", "Collaboration"],
     influences: "Yo-Yo Ma, Björk, contemporary classical",
-    location: "Santiago, Chile",
+    location: "Belgrano, CABA",
     bio: "Violinist with a passion for fusion — classically trained but love exploring folk traditions from around the world.",
   },
   {
@@ -110,7 +110,7 @@ const USERS = [
     experience_level: "Intermediate",
     looking_for: ["Producer collab", "Vocalist"],
     influences: "Daft Punk, Mac Miller, Helado Negro",
-    location: "Mexico City, Mexico",
+    location: "Nuñez, CABA",
     bio: "Producer y bajista del sur de la CDMX. Me gusta el beat-making y las líneas de bajo funk. Busco vocalistas y productores para armar tracks.",
   },
   {
@@ -122,7 +122,7 @@ const USERS = [
     experience_level: "Beginner",
     looking_for: ["Mentor", "Band", "Production help"],
     influences: "Rosalía, SZA, Billie Eilish",
-    location: "Madrid, Spain",
+    location: "Caballito, CABA",
     bio: "Empezando mi viaje musical después de años de cantar en mi cuarto. Busco gente paciente y talentosa para aprender y crear algo bonito juntos.",
   },
   {
@@ -134,7 +134,7 @@ const USERS = [
     experience_level: "Advanced",
     looking_for: ["Bandmates"],
     influences: "Stevie Ray Vaughan, Jimi Hendrix, ZZ Top",
-    location: "Nashville, TN",
+    location: "Almagro, CABA",
     bio: "Guitarrista y compositor. Mitad uruguayo, mitad Nashvillian. Busco músicos para formar un power trio de blues-rock con actitud.",
   },
   {
@@ -146,7 +146,7 @@ const USERS = [
     experience_level: "Advanced",
     looking_for: ["Ensemble", "Touring musician"],
     influences: "Pixinguinha, Hermeto Pascoal, Wayne Shorter",
-    location: "São Paulo, Brazil",
+    location: "San Telmo, CABA",
     bio: "Flautista e saxofonista brasileira. Tocou em diversos conjuntos de choro e bossa nova. Busco projetos de world music e jazz fusion.",
   },
   {
@@ -158,7 +158,7 @@ const USERS = [
     experience_level: "Advanced",
     looking_for: ["Composer collab", "Film scoring"],
     influences: "Philip Glass, Ryuichi Sakamoto, Jonny Greenwood",
-    location: "New York, NY",
+    location: "Villa Crespo, CABA",
     bio: "Composer and multi-instrumentalist. Scored several indie films and short documentaries. Looking to collaborate on film/game scoring or experimental folk.",
   },
   {
@@ -170,7 +170,7 @@ const USERS = [
     experience_level: "Intermediate",
     looking_for: ["Producer", "Live band", "Vocalist collab"],
     influences: "Fairouz, Nina Simone, Four Tet",
-    location: "Cairo, Egypt / London, UK",
+    location: "Colegiales, CABA",
     bio: "Singer blending traditional Arabic vocals with electronic production. Based between Cairo and London. Looking for producers and beat-makers.",
   },
   {
@@ -182,7 +182,7 @@ const USERS = [
     experience_level: "Intermediate",
     looking_for: ["Band", "Rhythm section"],
     influences: "Manu Chao, Los Fabulosos Cadillacs, Bob Marley",
-    location: "Bogotá, Colombia",
+    location: "Boedo, CABA",
     bio: "Cantautor colombiano con influencias de rock latino y reggae. Busco banda para tocar en vivo y grabar un EP este año.",
   },
   {
@@ -194,7 +194,7 @@ const USERS = [
     experience_level: "Advanced",
     looking_for: ["Fusion projects", "Experimentation"],
     influences: "Ravi Shankar, AR Rahman, Flying Lotus",
-    location: "Mumbai, India / Toronto, Canada",
+    location: "Flores, CABA",
     bio: "Tabla player and vocalist, classically trained in Hindustani music. Now exploring electronic fusion and cross-cultural collaborations.",
   },
   {
@@ -206,7 +206,7 @@ const USERS = [
     experience_level: "Intermediate",
     looking_for: ["Collaboration", "Live performance"],
     influences: "Hildur Guðnadóttir, Max Richter, Olafur Arnalds",
-    location: "Copenhagen, Denmark",
+    location: "La Boca, CABA",
     bio: "Cellist creating ambient and neoclassical soundscapes. Looking for collaborators for live performances and recordings.",
   },
 
@@ -220,7 +220,7 @@ const USERS = [
     experience_level: "Advanced",
     looking_for: ["Fusion collaboration", "Live performance"],
     influences: "Ravi Shankar, Brian Eno, Kaitlyn Aurelia Smith",
-    location: "Mumbai, India",
+    location: "Chacarita, CABA",
     bio: "Sitarist pushing the boundaries of classical tradition into ambient and electronic territory. Looking for collaborators who want to explore the space between acoustic and digital.",
   },
   {
@@ -232,7 +232,7 @@ const USERS = [
     experience_level: "Intermediate",
     looking_for: ["Band", "Recording"],
     influences: "The Smiths, Alvvays, The Cranberries",
-    location: "Stockholm, Sweden",
+    location: "Saavedra, CABA",
     bio: "Swedish songwriter with a love for jangly guitars and bittersweet lyrics. Looking to form a dream pop band or join an existing project.",
   },
   {
@@ -244,7 +244,7 @@ const USERS = [
     experience_level: "Advanced",
     looking_for: ["Experimental project", "Band"],
     influences: "King Crimson, Radiohead, Steve Vai",
-    location: "Rome, Italy",
+    location: "Villa Urquiza, CABA",
     bio: "Chitarrista ossessionato dal suono. Live looping, odd time signatures, and textural exploration. Looking for musicians who want to push beyond verse-chorus-verse.",
   },
   {
@@ -256,7 +256,7 @@ const USERS = [
     experience_level: "Intermediate",
     looking_for: ["Producer", "Live band"],
     influences: "Tems, Burna Boy, Sade",
-    location: "Lagos, Nigeria / London, UK",
+    location: "Devoto, CABA",
     bio: "Singer and performer blending Afrobeats with soulful R&B. Split between Lagos and London. Looking for producers and live musicians for a debut EP.",
   },
   {
@@ -268,7 +268,7 @@ const USERS = [
     experience_level: "Advanced",
     looking_for: ["Ensemble", "Composition project"],
     influences: "Charles Mingus, Esperanza Spalding, J.S. Bach",
-    location: "Berlin, Germany",
+    location: "Puerto Madero, CABA",
     bio: "Kontrabassist with a foot in both jazz and classical worlds. Played with the Berliner Philharmoniker's education program and several avant-garde jazz ensembles.",
   },
   {
@@ -280,7 +280,7 @@ const USERS = [
     experience_level: "Intermediate",
     looking_for: ["Duo", "Band", "Live gigs"],
     influences: "Norah Jones, Amy Winehouse, Paolo Conte",
-    location: "Milan, Italy",
+    location: "Monserrat, CABA",
     bio: "Pianist and vocalist with a warm, smoky voice. Repertoire spans jazz standards, bossa nova, and original pop. Looking for a duo partner or band for live dates.",
   },
   {
@@ -292,7 +292,7 @@ const USERS = [
     experience_level: "Advanced",
     looking_for: ["Producer collab", "Emcee"],
     influences: "J Dilla, Nujabes, Flying Lotus",
-    location: "Tokyo, Japan",
+    location: "Barracas, CABA",
     bio: "Beatmaker and producer from Shibuya. Sampled-based hip hop meets electronic sound design. Looking for emcees and vocalists to finish tracks.",
   },
   {
@@ -304,7 +304,7 @@ const USERS = [
     experience_level: "Advanced",
     looking_for: ["Ensemble", "Touring"],
     influences: "Paco de Lucía, Camarón, Vicente Amigo",
-    location: "Seville, Spain",
+    location: "Parque Patricios, CABA",
     bio: "Guitarrista flamenca con 15 años de estudio. Domino palos como soleá, bulerías y alegrías. Busco proyecto de fusión o ensemble para giras.",
   },
   {
@@ -316,7 +316,7 @@ const USERS = [
     experience_level: "Intermediate",
     looking_for: ["Band", "Session playing"],
     influences: "The Chieftains, Punch Brothers, Martin Hayes",
-    location: "Dublin, Ireland",
+    location: "Vicente López, Buenos Aires",
     bio: "Traditional Irish fiddler branching into bluegrass and folk. Fast fingers, open ears. Looking for a band or session gig — studio or live.",
   },
   {
@@ -328,7 +328,7 @@ const USERS = [
     experience_level: "Advanced",
     looking_for: ["Cross-cultural collaboration", "Experimental"],
     influences: "Traditional Gagaku, Ryuichi Sakamoto, Arca",
-    location: "Kyoto, Japan",
+    location: "Olivos, Buenos Aires",
     bio: "Traditional Japanese instrumentalist exploring the intersection of ancient forms and electronic music. Classically trained in shamisen and koto, self-taught in production.",
   },
   {
@@ -340,7 +340,7 @@ const USERS = [
     experience_level: "Beginner",
     looking_for: ["Band", "Mentor"],
     influences: "Susana Baca, Natalia Lafourcade, Silvana Estrada",
-    location: "Lima, Peru",
+    location: "San Isidro, Buenos Aires",
     bio: "Cantautora peruana empezando su camino. Escribo canciones que mezclan la música andina con el pop latino. Busco músicos con experiencia para armar proyecto.",
   },
   {
@@ -352,7 +352,7 @@ const USERS = [
     experience_level: "Advanced",
     looking_for: ["World music ensemble", "Festival"],
     influences: "Toumani Diabaté, Salif Keita, Ali Farka Touré",
-    location: "Dakar, Senegal / Paris, France",
+    location: "Martínez, Buenos Aires",
     bio: "Kora player and vocalist from a long line of griots. Brings the tradition of West African storytelling to contemporary world music. Based between Dakar and Paris.",
   },
   {
@@ -364,7 +364,7 @@ const USERS = [
     experience_level: "Intermediate",
     looking_for: ["Band", "Production"],
     influences: "Lindsey Stirling, Yoko Kanno, Imogen Heap",
-    location: "Osaka, Japan",
+    location: "Adrogué, Buenos Aires",
     bio: "Electric violinist and vocalist blending classical technique with pop and electronic production. Looking for producers and bandmates to create genre-bending music.",
   },
 
@@ -378,7 +378,7 @@ const USERS = [
     experience_level: "Advanced",
     looking_for: ["Chamber ensemble", "Collaboration"],
     influences: "Rachmaninoff, Arvo Pärt, Nils Frahm",
-    location: "Moscow, Russia",
+    location: "Lanús, Buenos Aires",
     bio: "Concert pianist with a love for both the romantic repertoire and contemporary minimalism. Looking to form a chamber group or collaborate with electronic musicians.",
   },
   {
@@ -390,7 +390,7 @@ const USERS = [
     experience_level: "Advanced",
     looking_for: ["Band", "Session work"],
     influences: "John Coltrane, Cannonball Adderley, Maceo Parker",
-    location: "New Orleans, LA",
+    location: "Avellaneda, Buenos Aires",
     bio: "Saxophonist born and raised in NOLA. Played with the Rebirth Brass Band and various funk outfits. Looking for a tight band or session gigs — studio or live.",
   },
   {
@@ -402,7 +402,7 @@ const USERS = [
     experience_level: "Intermediate",
     looking_for: ["Producer", "Songwriting partner"],
     influences: "Utada Hikaru, Imogen Heap, Grimes",
-    location: "Tokyo, Japan",
+    location: "Banfield, Buenos Aires",
     bio: "Singer-songwriter crafting dreamy pop with electronic textures. Bilingual (JP/EN). Looking for a producer to help bring my demos to life.",
   },
   {
@@ -414,7 +414,7 @@ const USERS = [
     experience_level: "Intermediate",
     looking_for: ["Band", "Live gigs"],
     influences: "João Gilberto, Caetano Veloso, Seu Jorge",
-    location: "Rio de Janeiro, Brazil",
+    location: "Ramos Mejía, Buenos Aires",
     bio: "Carioca com o violão na alma. Toco samba e MPB desde moleque. Busco músicos pra formar um grupo e tocar nos bares da Lapa.",
   },
   {
@@ -426,7 +426,7 @@ const USERS = [
     experience_level: "Advanced",
     looking_for: ["Fusion project", "Tour"],
     influences: "M.S. Subbulakshmi, L. Subramaniam, Bobby McFerrin",
-    location: "Chennai, India",
+    location: "Morón, Buenos Aires",
     bio: "Carnatic violinist and vocalist with 18 years of training. Now exploring cross-genre collaborations. Looking for serious fusion projects with global reach.",
   },
   {
@@ -438,7 +438,7 @@ const USERS = [
     experience_level: "Intermediate",
     looking_for: ["Band", "Pub gigs"],
     influences: "The Dubliners, The Gloaming, Iron & Wine",
-    location: "Galway, Ireland",
+    location: "Tigre, Buenos Aires",
     bio: "Irish folk musician with a love for trad sessions and indie songwriting. Bouzouki is my main squeeze. Looking for a band or session group.",
   },
   {
@@ -450,7 +450,7 @@ const USERS = [
     experience_level: "Advanced",
     looking_for: ["World fusion band", "Festival"],
     influences: "Goran Bregović, Beirut, Gogol Bordello",
-    location: "Belgrade, Serbia",
+    location: "La Plata, Buenos Aires",
     bio: "Harmonikašica iz Beograda. Spajam balkanski folk sa punk i world zvukom. Nastupala na EXIT i Guča festivalima. Tražim bend za turneju.",
   },
   {
@@ -462,7 +462,7 @@ const USERS = [
     experience_level: "Advanced",
     looking_for: ["Collaboration", "Film scoring"],
     influences: "Hildur Guðnadóttir, Johann Johannsson, Aphex Twin",
-    location: "Paris, France",
+    location: "Palermo, CABA",
     bio: "Violoncelliste classique transformé en producteur électroacoustique. Je cherche des cinéastes et des musiciens pour des projets hybrides entre acoustique et numérique.",
   },
   {
@@ -474,7 +474,7 @@ const USERS = [
     experience_level: "Beginner",
     looking_for: ["Mentor", "Producer", "Group"],
     influences: "NewJeans, Ariana Grande, Tinashe",
-    location: "Seoul, South Korea",
+    location: "Recoleta, CABA",
     bio: "Aspiring K-pop vocalist with years of dance training. Just starting my music journey after being a backup dancer. Looking for mentors and producers to help me grow.",
   },
   {
@@ -486,7 +486,7 @@ const USERS = [
     experience_level: "Intermediate",
     looking_for: ["Ensemble", "Cultural project"],
     influences: "Los Kjarkas, Inti Illimani, Gustavo Santaolalla",
-    location: "La Paz, Bolivia",
+    location: "Belgrano, CABA",
     bio: "Músico andino boliviano. Toco charango, quena y zampoñas. Busco proyecto de fusión que quiera incorporar sonidos de los Andes a la música contemporánea.",
   },
   {
@@ -498,7 +498,7 @@ const USERS = [
     experience_level: "Advanced",
     looking_for: ["Ensemble", "Touring"],
     influences: "Giora Feidman, Don Byron, John Zorn",
-    location: "Tel Aviv, Israel",
+    location: "Nuñez, CABA",
     bio: "Clarinetist specializing in klezmer and avant-garde jazz. Graduate of Berklee, toured with the Jerusalem Roots Ensemble. Looking for adventurous projects.",
   },
   {
@@ -510,7 +510,7 @@ const USERS = [
     experience_level: "Advanced",
     looking_for: ["Fusion ensemble", "Live performance"],
     influences: "Kodo, Eitetsu Hayashi, Stomp",
-    location: "Osaka, Japan",
+    location: "Caballito, CABA",
     bio: "Taiko performer with 15 years of training in wadaiko. Performed at venues across Japan and abroad. Looking for fusion projects that blend taiko with other genres.",
   },
   {
@@ -522,7 +522,7 @@ const USERS = [
     experience_level: "Intermediate",
     looking_for: ["Choir", "Band", "Production"],
     influences: "Kirk Franklin, Aretha Franklin, Tems",
-    location: "Accra, Ghana",
+    location: "Almagro, CABA",
     bio: "Singer with a background in gospel choirs and a deep love for soul. Looking to expand into afrobeat and contemporary soul. Seeking bandmates and producers.",
   },
   {
@@ -534,7 +534,7 @@ const USERS = [
     experience_level: "Advanced",
     looking_for: ["Orchestra", "Session work"],
     influences: "Arturo Sandoval, Chucho Valdés, Irakere",
-    location: "Havana, Cuba",
+    location: "San Telmo, CABA",
     bio: "Trompetista cubano con sangre de salsa y jazz. 12 años tocando en orquestas de La Habana. Busco proyectos de latin jazz o sesiones de grabación.",
   },
   {
@@ -546,7 +546,7 @@ const USERS = [
     experience_level: "Intermediate",
     looking_for: ["Folk ensemble", "Collaboration"],
     influences: "Hedningarna, Aurora, Annbjørg Lien",
-    location: "Stockholm, Sweden / Oslo, Norway",
+    location: "Villa Crespo, CABA",
     bio: "Nyckelharpa player keeping Nordic folk traditions alive while exploring ambient and ethereal soundscapes. Looking for collaborators for a folk-ambient project.",
   },
   {
@@ -558,7 +558,7 @@ const USERS = [
     experience_level: "Advanced",
     looking_for: ["Producer collab", "Live band"],
     influences: "Talvin Singh, Zakir Hussain, Bonobo",
-    location: "London, UK",
+    location: "Colegiales, CABA",
     bio: "Tabla player and electronic producer based in London. Merging classical Indian percussion with UK electronic and jazz. Looking for collaborators for live shows and studio work.",
   },
   {
@@ -570,7 +570,7 @@ const USERS = [
     experience_level: "Advanced",
     looking_for: ["Collaboration", "Film scoring"],
     influences: "Lavinia Meijer, Ólafur Arnalds, Alexandre Desplat",
-    location: "Lyon, France",
+    location: "Boedo, CABA",
     bio: "Harpsichord turned contemporary harpist. Classically trained but my heart beats for cinematic and ambient music. Looking to collaborate on film or game scores.",
   },
   {
@@ -582,7 +582,7 @@ const USERS = [
     experience_level: "Intermediate",
     looking_for: ["Band", "Live performance"],
     influences: "Elza Soares, Gal Costa, Liniker",
-    location: "Salvador, Brazil",
+    location: "Flores, CABA",
     bio: "Cantora e compositora baiana com a axé e a força do samba reggae. Minhas letras falam de resistência e amor. Busco banda pra turnê e gravação.",
   },
   {
@@ -594,7 +594,7 @@ const USERS = [
     experience_level: "Advanced",
     looking_for: ["Band", "Recording"],
     influences: "Meshuggah, Opeth, Tool",
-    location: "Gothenburg, Sweden",
+    location: "La Boca, CABA",
     bio: "Riff machine from the Swedish metal scene. 7-string guitar, odd time signatures, and heavy tones. Looking to join or form a progressive metal/stoner rock band.",
   },
   {
@@ -606,7 +606,7 @@ const USERS = [
     experience_level: "Intermediate",
     looking_for: ["Experimental project", "Installation"],
     influences: "Lydia Kavina, Laurie Anderson, Tim Hecker",
-    location: "Berlin, Germany",
+    location: "Chacarita, CABA",
     bio: "Thereminist and sound artist creating immersive sonic landscapes. Working with field recordings, analog synths, and the weirdest instrument of all — the theremin.",
   },
   {
@@ -618,7 +618,7 @@ const USERS = [
     experience_level: "Advanced",
     looking_for: ["Ensemble", "Touring"],
     influences: "Astor Piazzolla, Dino Saluzzi, Gustavo Beytelmann",
-    location: "Buenos Aires, Argentina",
+    location: "Saavedra, CABA",
     bio: "Bandoneonista argentino especializado en tango contemporáneo. Formé parte de varias orquestas de la escena porteña. Busco proyecto innovador que fusione tango con otros géneros.",
   },
   {
@@ -630,7 +630,7 @@ const USERS = [
     experience_level: "Intermediate",
     looking_for: ["World music project", "Collaboration"],
     influences: "Niyazi Sayın, Omar Souleyman, Natacha Atlas",
-    location: "Amman, Jordan",
+    location: "Villa Urquiza, CABA",
     bio: "Ney player and vocalist from Jordan. My music draws from Arabic classical, Sufi poetry, and electronic textures. Looking for cross-cultural collaborations.",
   },
   {
@@ -642,7 +642,7 @@ const USERS = [
     experience_level: "Advanced",
     looking_for: ["Band", "Session work"],
     influences: "Jimmy Smith, Cory Henry, Herbie Hancock",
-    location: "Amsterdam, Netherlands",
+    location: "Devoto, CABA",
     bio: "Hammond B3 specialist with a deep pocket. Played in jazz clubs, gospel churches, and soul revues across Europe. Looking for a band that needs that fat organ sound.",
   },
   {
@@ -654,7 +654,7 @@ const USERS = [
     experience_level: "Intermediate",
     looking_for: ["Experimental project", "Collaboration"],
     influences: "Hiromitsu Agatsuma, Ichiko Aoba, Joanna Newsom",
-    location: "Kyoto, Japan",
+    location: "Puerto Madero, CABA",
     bio: "Shamisen player and folk singer from Kyoto. I blend traditional Japanese folk with indie and experimental sounds. Looking for collaborators who love the strange and beautiful.",
   },
   {
@@ -666,7 +666,7 @@ const USERS = [
     experience_level: "Beginner",
     looking_for: ["Mentor", "Band", "Live experience"],
     influences: "Angelique Kidjo, Erykah Badu, Fela Kuti",
-    location: "Lagos, Nigeria",
+    location: "Monserrat, CABA",
     bio: "Young vocalist and percussionist finding my voice in the vibrant Lagos music scene. I grew up singing in church and dancing to Fela. Looking to learn from experienced musicians.",
   },
 ];
