@@ -367,6 +367,308 @@ const USERS = [
     location: "Osaka, Japan",
     bio: "Electric violinist and vocalist blending classical technique with pop and electronic production. Looking for producers and bandmates to create genre-bending music.",
   },
+
+  // ── 26-50: Second wave ────────────────────────────────────────────
+  {
+    id: "a1b2c3d4-e5f6-7890-abcd-ef1234567826",
+    email: "elena.petrova@example.com",
+    name: "Elena Petrova",
+    instruments: ["Piano", "Harpsichord"],
+    genres: ["Classical", "Contemporary"],
+    experience_level: "Advanced",
+    looking_for: ["Chamber ensemble", "Collaboration"],
+    influences: "Rachmaninoff, Arvo Pärt, Nils Frahm",
+    location: "Moscow, Russia",
+    bio: "Concert pianist with a love for both the romantic repertoire and contemporary minimalism. Looking to form a chamber group or collaborate with electronic musicians.",
+  },
+  {
+    id: "a1b2c3d4-e5f6-7890-abcd-ef1234567827",
+    email: "marcus.williams@example.com",
+    name: "Marcus Williams",
+    instruments: ["Saxophone", "Flute"],
+    genres: ["Jazz", "Soul", "Funk"],
+    experience_level: "Advanced",
+    looking_for: ["Band", "Session work"],
+    influences: "John Coltrane, Cannonball Adderley, Maceo Parker",
+    location: "New Orleans, LA",
+    bio: "Saxophonist born and raised in NOLA. Played with the Rebirth Brass Band and various funk outfits. Looking for a tight band or session gigs — studio or live.",
+  },
+  {
+    id: "a1b2c3d4-e5f6-7890-abcd-ef1234567828",
+    email: "aiko.sato@example.com",
+    name: "Aiko Sato",
+    instruments: ["Vocals", "Piano"],
+    genres: ["J-Pop", "Electronic", "Indie"],
+    experience_level: "Intermediate",
+    looking_for: ["Producer", "Songwriting partner"],
+    influences: "Utada Hikaru, Imogen Heap, Grimes",
+    location: "Tokyo, Japan",
+    bio: "Singer-songwriter crafting dreamy pop with electronic textures. Bilingual (JP/EN). Looking for a producer to help bring my demos to life.",
+  },
+  {
+    id: "a1b2c3d4-e5f6-7890-abcd-ef1234567829",
+    email: "thiago.silva@example.com",
+    name: "Thiago Silva",
+    instruments: ["Acoustic Guitar", "Cavaquinho", "Vocals"],
+    genres: ["Samba", "MPB", "Pop"],
+    experience_level: "Intermediate",
+    looking_for: ["Band", "Live gigs"],
+    influences: "João Gilberto, Caetano Veloso, Seu Jorge",
+    location: "Rio de Janeiro, Brazil",
+    bio: "Carioca com o violão na alma. Toco samba e MPB desde moleque. Busco músicos pra formar um grupo e tocar nos bares da Lapa.",
+  },
+  {
+    id: "a1b2c3d4-e5f6-7890-abcd-ef1234567830",
+    email: "priya.sharma@example.com",
+    name: "Priya Sharma",
+    instruments: ["Violin", "Vocals"],
+    genres: ["Indian Classical", "Fusion", "World"],
+    experience_level: "Advanced",
+    looking_for: ["Fusion project", "Tour"],
+    influences: "M.S. Subbulakshmi, L. Subramaniam, Bobby McFerrin",
+    location: "Chennai, India",
+    bio: "Carnatic violinist and vocalist with 18 years of training. Now exploring cross-genre collaborations. Looking for serious fusion projects with global reach.",
+  },
+  {
+    id: "a1b2c3d4-e5f6-7890-abcd-ef1234567831",
+    email: "finn.omalley@example.com",
+    name: "Finn O'Malley",
+    instruments: ["Bouzouki", "Guitar", "Vocals"],
+    genres: ["Folk", "Celtic", "Indie"],
+    experience_level: "Intermediate",
+    looking_for: ["Band", "Pub gigs"],
+    influences: "The Dubliners, The Gloaming, Iron & Wine",
+    location: "Galway, Ireland",
+    bio: "Irish folk musician with a love for trad sessions and indie songwriting. Bouzouki is my main squeeze. Looking for a band or session group.",
+  },
+  {
+    id: "a1b2c3d4-e5f6-7890-abcd-ef1234567832",
+    email: "nina.petrovic@example.com",
+    name: "Nina Petrović",
+    instruments: ["Accordion", "Vocals"],
+    genres: ["Balkan Folk", "World", "Punk"],
+    experience_level: "Advanced",
+    looking_for: ["World fusion band", "Festival"],
+    influences: "Goran Bregović, Beirut, Gogol Bordello",
+    location: "Belgrade, Serbia",
+    bio: "Harmonikašica iz Beograda. Spajam balkanski folk sa punk i world zvukom. Nastupala na EXIT i Guča festivalima. Tražim bend za turneju.",
+  },
+  {
+    id: "a1b2c3d4-e5f6-7890-abcd-ef1234567833",
+    email: "hugo.lefevre@example.com",
+    name: "Hugo Lefevre",
+    instruments: ["Cello", "Electronics"],
+    genres: ["Classical", "Ambient", "Electronic"],
+    experience_level: "Advanced",
+    looking_for: ["Collaboration", "Film scoring"],
+    influences: "Hildur Guðnadóttir, Johann Johannsson, Aphex Twin",
+    location: "Paris, France",
+    bio: "Violoncelliste classique transformé en producteur électroacoustique. Je cherche des cinéastes et des musiciens pour des projets hybrides entre acoustique et numérique.",
+  },
+  {
+    id: "a1b2c3d4-e5f6-7890-abcd-ef1234567834",
+    email: "selena.kwon@example.com",
+    name: "Selena Kwon",
+    instruments: ["Vocals", "Dance"],
+    genres: ["K-Pop", "R&B", "Pop"],
+    experience_level: "Beginner",
+    looking_for: ["Mentor", "Producer", "Group"],
+    influences: "NewJeans, Ariana Grande, Tinashe",
+    location: "Seoul, South Korea",
+    bio: "Aspiring K-pop vocalist with years of dance training. Just starting my music journey after being a backup dancer. Looking for mentors and producers to help me grow.",
+  },
+  {
+    id: "a1b2c3d4-e5f6-7890-abcd-ef1234567835",
+    email: "pedro.castillo@example.com",
+    name: "Pedro Castillo",
+    instruments: ["Charango", "Zampoñas", "Guitar"],
+    genres: ["Andean Folk", "World", "Folk"],
+    experience_level: "Intermediate",
+    looking_for: ["Ensemble", "Cultural project"],
+    influences: "Los Kjarkas, Inti Illimani, Gustavo Santaolalla",
+    location: "La Paz, Bolivia",
+    bio: "Músico andino boliviano. Toco charango, quena y zampoñas. Busco proyecto de fusión que quiera incorporar sonidos de los Andes a la música contemporánea.",
+  },
+  {
+    id: "a1b2c3d4-e5f6-7890-abcd-ef1234567836",
+    email: "leah.cohen@example.com",
+    name: "Leah Cohen",
+    instruments: ["Clarinet", "Bass Clarinet"],
+    genres: ["Klezmer", "Jazz", "World"],
+    experience_level: "Advanced",
+    looking_for: ["Ensemble", "Touring"],
+    influences: "Giora Feidman, Don Byron, John Zorn",
+    location: "Tel Aviv, Israel",
+    bio: "Clarinetist specializing in klezmer and avant-garde jazz. Graduate of Berklee, toured with the Jerusalem Roots Ensemble. Looking for adventurous projects.",
+  },
+  {
+    id: "a1b2c3d4-e5f6-7890-abcd-ef1234567837",
+    email: "kenji.mori@example.com",
+    name: "Kenji Mori",
+    instruments: ["Taiko Drums", "Wadaiko", "Percussion"],
+    genres: ["Traditional Japanese", "World", "Fusion"],
+    experience_level: "Advanced",
+    looking_for: ["Fusion ensemble", "Live performance"],
+    influences: "Kodo, Eitetsu Hayashi, Stomp",
+    location: "Osaka, Japan",
+    bio: "Taiko performer with 15 years of training in wadaiko. Performed at venues across Japan and abroad. Looking for fusion projects that blend taiko with other genres.",
+  },
+  {
+    id: "a1b2c3d4-e5f6-7890-abcd-ef1234567838",
+    email: "amara.osei@example.com",
+    name: "Amara Osei",
+    instruments: ["Vocals", "Piano"],
+    genres: ["Gospel", "Soul", "Afrobeat"],
+    experience_level: "Intermediate",
+    looking_for: ["Choir", "Band", "Production"],
+    influences: "Kirk Franklin, Aretha Franklin, Tems",
+    location: "Accra, Ghana",
+    bio: "Singer with a background in gospel choirs and a deep love for soul. Looking to expand into afrobeat and contemporary soul. Seeking bandmates and producers.",
+  },
+  {
+    id: "a1b2c3d4-e5f6-7890-abcd-ef1234567839",
+    email: "diego.rivera@example.com",
+    name: "Diego Rivera",
+    instruments: ["Trumpet", "Flugelhorn"],
+    genres: ["Latin Jazz", "Salsa", "Timba"],
+    experience_level: "Advanced",
+    looking_for: ["Orchestra", "Session work"],
+    influences: "Arturo Sandoval, Chucho Valdés, Irakere",
+    location: "Havana, Cuba",
+    bio: "Trompetista cubano con sangre de salsa y jazz. 12 años tocando en orquestas de La Habana. Busco proyectos de latin jazz o sesiones de grabación.",
+  },
+  {
+    id: "a1b2c3d4-e5f6-7890-abcd-ef1234567840",
+    email: "ingrid.larsen@example.com",
+    name: "Ingrid Larsen",
+    instruments: ["Nyckelharpa", "Hardanger Fiddle", "Vocals"],
+    genres: ["Nordic Folk", "Folk", "Ambient"],
+    experience_level: "Intermediate",
+    looking_for: ["Folk ensemble", "Collaboration"],
+    influences: "Hedningarna, Aurora, Annbjørg Lien",
+    location: "Stockholm, Sweden / Oslo, Norway",
+    bio: "Nyckelharpa player keeping Nordic folk traditions alive while exploring ambient and ethereal soundscapes. Looking for collaborators for a folk-ambient project.",
+  },
+  {
+    id: "a1b2c3d4-e5f6-7890-abcd-ef1234567841",
+    email: "rohan.mehta@example.com",
+    name: "Rohan Mehta",
+    instruments: ["Tabla", "Percussion", "Electronics"],
+    genres: ["Fusion", "Electronic", "World"],
+    experience_level: "Advanced",
+    looking_for: ["Producer collab", "Live band"],
+    influences: "Talvin Singh, Zakir Hussain, Bonobo",
+    location: "London, UK",
+    bio: "Tabla player and electronic producer based in London. Merging classical Indian percussion with UK electronic and jazz. Looking for collaborators for live shows and studio work.",
+  },
+  {
+    id: "a1b2c3d4-e5f6-7890-abcd-ef1234567842",
+    email: "celeste.moreau@example.com",
+    name: "Celeste Moreau",
+    instruments: ["Harp", "Piano"],
+    genres: ["Classical", "Ambient", "Cinematic"],
+    experience_level: "Advanced",
+    looking_for: ["Collaboration", "Film scoring"],
+    influences: "Lavinia Meijer, Ólafur Arnalds, Alexandre Desplat",
+    location: "Lyon, France",
+    bio: "Harpsichord turned contemporary harpist. Classically trained but my heart beats for cinematic and ambient music. Looking to collaborate on film or game scores.",
+  },
+  {
+    id: "a1b2c3d4-e5f6-7890-abcd-ef1234567843",
+    email: "yara.nascimento@example.com",
+    name: "Yara Nascimento",
+    instruments: ["Vocals", "Guitar", "Percussion"],
+    genres: ["MPB", "Samba", "Afro-Brazilian"],
+    experience_level: "Intermediate",
+    looking_for: ["Band", "Live performance"],
+    influences: "Elza Soares, Gal Costa, Liniker",
+    location: "Salvador, Brazil",
+    bio: "Cantora e compositora baiana com a axé e a força do samba reggae. Minhas letras falam de resistência e amor. Busco banda pra turnê e gravação.",
+  },
+  {
+    id: "a1b2c3d4-e5f6-7890-abcd-ef1234567844",
+    email: "viktor.andersson@example.com",
+    name: "Viktor Andersson",
+    instruments: ["Electric Guitar", "Bass"],
+    genres: ["Metal", "Progressive", "Stoner Rock"],
+    experience_level: "Advanced",
+    looking_for: ["Band", "Recording"],
+    influences: "Meshuggah, Opeth, Tool",
+    location: "Gothenburg, Sweden",
+    bio: "Riff machine from the Swedish metal scene. 7-string guitar, odd time signatures, and heavy tones. Looking to join or form a progressive metal/stoner rock band.",
+  },
+  {
+    id: "a1b2c3d4-e5f6-7890-abcd-ef1234567845",
+    email: "lila.cohen@example.com",
+    name: "Lila Cohen",
+    instruments: ["Theremin", "Synth", "Field Recordings"],
+    genres: ["Experimental", "Ambient", "Drone"],
+    experience_level: "Intermediate",
+    looking_for: ["Experimental project", "Installation"],
+    influences: "Lydia Kavina, Laurie Anderson, Tim Hecker",
+    location: "Berlin, Germany",
+    bio: "Thereminist and sound artist creating immersive sonic landscapes. Working with field recordings, analog synths, and the weirdest instrument of all — the theremin.",
+  },
+  {
+    id: "a1b2c3d4-e5f6-7890-abcd-ef1234567846",
+    email: "santiago.mendez@example.com",
+    name: "Santiago Méndez",
+    instruments: ["Bandoneón", "Piano"],
+    genres: ["Tango", "Contemporary", "World"],
+    experience_level: "Advanced",
+    looking_for: ["Ensemble", "Touring"],
+    influences: "Astor Piazzolla, Dino Saluzzi, Gustavo Beytelmann",
+    location: "Buenos Aires, Argentina",
+    bio: "Bandoneonista argentino especializado en tango contemporáneo. Formé parte de varias orquestas de la escena porteña. Busco proyecto innovador que fusione tango con otros géneros.",
+  },
+  {
+    id: "a1b2c3d4-e5f6-7890-abcd-ef1234567847",
+    email: "noor.hassan@example.com",
+    name: "Noor Hassan",
+    instruments: ["Ney", "Flute", "Vocals"],
+    genres: ["Arabic", "World", "Sufi"],
+    experience_level: "Intermediate",
+    looking_for: ["World music project", "Collaboration"],
+    influences: "Niyazi Sayın, Omar Souleyman, Natacha Atlas",
+    location: "Amman, Jordan",
+    bio: "Ney player and vocalist from Jordan. My music draws from Arabic classical, Sufi poetry, and electronic textures. Looking for cross-cultural collaborations.",
+  },
+  {
+    id: "a1b2c3d4-e5f6-7890-abcd-ef1234567848",
+    email: "jasper.dewit@example.com",
+    name: "Jasper de Wit",
+    instruments: ["Hammond Organ", "Piano", "Synth"],
+    genres: ["Jazz", "Gospel", "Soul"],
+    experience_level: "Advanced",
+    looking_for: ["Band", "Session work"],
+    influences: "Jimmy Smith, Cory Henry, Herbie Hancock",
+    location: "Amsterdam, Netherlands",
+    bio: "Hammond B3 specialist with a deep pocket. Played in jazz clubs, gospel churches, and soul revues across Europe. Looking for a band that needs that fat organ sound.",
+  },
+  {
+    id: "a1b2c3d4-e5f6-7890-abcd-ef1234567849",
+    email: "mika.suzuki@example.com",
+    name: "Mika Suzuki",
+    instruments: ["Shamisen", "Vocals", "Shinobue"],
+    genres: ["Folk", "Experimental", "Indie"],
+    experience_level: "Intermediate",
+    looking_for: ["Experimental project", "Collaboration"],
+    influences: "Hiromitsu Agatsuma, Ichiko Aoba, Joanna Newsom",
+    location: "Kyoto, Japan",
+    bio: "Shamisen player and folk singer from Kyoto. I blend traditional Japanese folk with indie and experimental sounds. Looking for collaborators who love the strange and beautiful.",
+  },
+  {
+    id: "a1b2c3d4-e5f6-7890-abcd-ef1234567850",
+    email: "imani.okafor@example.com",
+    name: "Imani Okafor",
+    instruments: ["Vocals", "Djembe", "Percussion"],
+    genres: ["Afrobeat", "Jazz", "Soul"],
+    experience_level: "Beginner",
+    looking_for: ["Mentor", "Band", "Live experience"],
+    influences: "Angelique Kidjo, Erykah Badu, Fela Kuti",
+    location: "Lagos, Nigeria",
+    bio: "Young vocalist and percussionist finding my voice in the vibrant Lagos music scene. I grew up singing in church and dancing to Fela. Looking to learn from experienced musicians.",
+  },
 ];
 
 // ── Connections (some pending, some matched) ─────────────────────
@@ -412,6 +714,47 @@ const CONNECTIONS = [
   { sender_id: USERS[19].id, receiver_id: USERS[17].id }, // Alejandra → Valentina
   { sender_id: USERS[23].id, receiver_id: USERS[8].id },  // Omar → Zara
   { sender_id: USERS[18].id, receiver_id: USERS[15].id }, // Kaito → Maya
+
+  // ── Second wave matched pairs ────────────────────────────────
+  { sender_id: USERS[25].id, receiver_id: USERS[43].id }, // Elena ↔ Viktor (classical + metal)
+  { sender_id: USERS[43].id, receiver_id: USERS[25].id }, // Viktor ↔ Elena
+  { sender_id: USERS[26].id, receiver_id: USERS[47].id }, // Marcus ↔ Jasper (sax + hammond)
+  { sender_id: USERS[47].id, receiver_id: USERS[26].id }, // Jasper ↔ Marcus
+  { sender_id: USERS[28].id, receiver_id: USERS[6].id },  // Thiago ↔ Camila (brazilian guitar + flute)
+  { sender_id: USERS[6].id, receiver_id: USERS[28].id },  // Camila ↔ Thiago
+  { sender_id: USERS[29].id, receiver_id: USERS[40].id }, // Priya ↔ Rohan (carnatic violin + tabla)
+  { sender_id: USERS[40].id, receiver_id: USERS[29].id }, // Rohan ↔ Priya
+  { sender_id: USERS[30].id, receiver_id: USERS[20].id }, // Finn ↔ Sam (bouzouki + fiddle)
+  { sender_id: USERS[20].id, receiver_id: USERS[30].id }, // Sam ↔ Finn
+  { sender_id: USERS[31].id, receiver_id: USERS[44].id }, // NinaP ↔ Lila (accordion + theremin)
+  { sender_id: USERS[44].id, receiver_id: USERS[31].id }, // Lila ↔ NinaP
+  { sender_id: USERS[32].id, receiver_id: USERS[41].id }, // Hugo ↔ Celeste (cello + harp)
+  { sender_id: USERS[41].id, receiver_id: USERS[32].id }, // Celeste ↔ Hugo
+  { sender_id: USERS[35].id, receiver_id: USERS[16].id }, // Leah ↔ Felix (clarinet + double bass)
+  { sender_id: USERS[16].id, receiver_id: USERS[35].id }, // Felix ↔ Leah
+  { sender_id: USERS[36].id, receiver_id: USERS[21].id }, // Kenji ↔ Yuki (taiko + shamisen)
+  { sender_id: USERS[21].id, receiver_id: USERS[36].id }, // Yuki ↔ Kenji
+  { sender_id: USERS[37].id, receiver_id: USERS[49].id }, // Amara ↔ Imani (gospel + afrobeat)
+  { sender_id: USERS[49].id, receiver_id: USERS[37].id }, // Imani ↔ Amara
+  { sender_id: USERS[38].id, receiver_id: USERS[19].id }, // DiegoR ↔ Alejandra (latin jazz + flamenco)
+  { sender_id: USERS[19].id, receiver_id: USERS[38].id }, // Alejandra ↔ DiegoR
+  { sender_id: USERS[39].id, receiver_id: USERS[30].id }, // Ingrid ↔ Finn (nyckelharpa + bouzouki)
+  { sender_id: USERS[30].id, receiver_id: USERS[39].id }, // Finn ↔ Ingrid
+  { sender_id: USERS[42].id, receiver_id: USERS[28].id }, // Yara ↔ Thiago (mpb + samba)
+  { sender_id: USERS[28].id, receiver_id: USERS[42].id }, // Thiago ↔ Yara
+  { sender_id: USERS[45].id, receiver_id: USERS[3].id },  // Santiago ↔ Javier (bandoneón + bass)
+  { sender_id: USERS[3].id, receiver_id: USERS[45].id },  // Javier ↔ Santiago
+  { sender_id: USERS[46].id, receiver_id: USERS[8].id },  // Noor ↔ Zara (ney + arabic vocals)
+  { sender_id: USERS[8].id, receiver_id: USERS[46].id },  // Zara ↔ Noor
+  { sender_id: USERS[48].id, receiver_id: USERS[36].id }, // Mika ↔ Kenji (shamisen + taiko)
+  { sender_id: USERS[36].id, receiver_id: USERS[48].id }, // Kenji ↔ Mika
+
+  // ── Second wave pending ──────────────────────────────────────
+  { sender_id: USERS[27].id, receiver_id: USERS[25].id }, // Aiko → Elena (j-pop seeking classical pianist)
+  { sender_id: USERS[33].id, receiver_id: USERS[27].id }, // Selena → Aiko (k-pop beginner looking up)
+  { sender_id: USERS[34].id, receiver_id: USERS[42].id }, // Pedro → Yara (andean + brazilian)
+  { sender_id: USERS[46].id, receiver_id: USERS[32].id }, // Noor → Hugo (ney + cello)
+  { sender_id: USERS[45].id, receiver_id: USERS[14].id }, // Santiago → Tomas (tango + experimental guitar)
 ];
 
 // ── Messages (between matched pairs only) ────────────────────────
@@ -599,6 +942,130 @@ const MESSAGES = [
     receiver_id: USERS[15].id,
     content: "Maya, your voice is incredible! Yes, I'm in London until August. Would love to sit down and explore how the kora fits with afrobeats. I think it could be something special.",
     created_at: "2026-06-09T17:00:00Z",
+    is_read: false,
+  },
+
+  // ── Elena ↔ Viktor chat ──────────────────────────────────────────
+  {
+    sender_id: USERS[25].id,
+    receiver_id: USERS[43].id,
+    content: "Viktor! I heard your demo track with the 7-string — the production is massive. I've been working on a neoclassical piece that needs that kind of weight. Interested in collaborating?",
+    created_at: "2026-06-08T10:00:00Z",
+    is_read: true,
+  },
+  {
+    sender_id: USERS[43].id,
+    receiver_id: USERS[25].id,
+    content: "Elena! Classical/metal fusion is exactly what I've been wanting to explore. Your Rachmaninoff-inspired runs would sit perfectly over some heavy riffing. Send me the sheet music!",
+    created_at: "2026-06-08T12:30:00Z",
+    is_read: true,
+  },
+  {
+    sender_id: USERS[25].id,
+    receiver_id: USERS[43].id,
+    content: "Let's do it! I'll send you the MIDI and we can start arranging. I'm thinking strings + distorted guitars in the climax. This is gonna be epic.",
+    created_at: "2026-06-08T14:00:00Z",
+    is_read: false,
+  },
+
+  // ── Marcus ↔ Jasper chat ─────────────────────────────────────────
+  {
+    sender_id: USERS[26].id,
+    receiver_id: USERS[47].id,
+    content: "Jasper! I caught your set at the Bimhuis last month — that B3 sound was filthy. I've got a soul-jazz project in the works and you'd be perfect on keys. You in?",
+    created_at: "2026-06-07T16:00:00Z",
+    is_read: true,
+  },
+  {
+    sender_id: USERS[47].id,
+    receiver_id: USERS[26].id,
+    content: "Marcus! I remember your solo that night — you burned the place down. Absolutely in. I've been wanting to do a proper soul-jazz record. Let's grab a beer and talk it through.",
+    created_at: "2026-06-07T18:00:00Z",
+    is_read: false,
+  },
+
+  // ── Thiago ↔ Camila chat ─────────────────────────────────────────
+  {
+    sender_id: USERS[28].id,
+    receiver_id: USERS[6].id,
+    content: "Camila! Ouvi seu trabalho com o São Paulo Jazz Collective — sua flauta é pura poesia. Tô montando um projeto de samba jazz e acho que seu som encaixaria perfeitamente.",
+    created_at: "2026-06-08T15:00:00Z",
+    is_read: true,
+  },
+  {
+    sender_id: USERS[6].id,
+    receiver_id: USERS[28].id,
+    content: "Thiago, que delícia! Adoro samba jazz. Seu violão é exatamente o que meu som precisa. Vamos marcar um ensaio? Tô no Rio semana que vem!",
+    created_at: "2026-06-08T17:30:00Z",
+    is_read: false,
+  },
+
+  // ── Priya ↔ Rohan chat ───────────────────────────────────────────
+  {
+    sender_id: USERS[29].id,
+    receiver_id: USERS[40].id,
+    content: "Rohan! I heard your fusion project with the London collective. Your tabla work is next level. I'd love to bring some Carnatic violin into your sound. Want to experiment?",
+    created_at: "2026-06-09T11:00:00Z",
+    is_read: true,
+  },
+  {
+    sender_id: USERS[40].id,
+    receiver_id: USERS[29].id,
+    content: "Priya, your Carnatic phrasing would add such a beautiful dimension! I've got a studio session next Thursday in East London. Come through and let's see what happens.",
+    created_at: "2026-06-09T13:00:00Z",
+    is_read: true,
+  },
+  {
+    sender_id: USERS[29].id,
+    receiver_id: USERS[40].id,
+    content: "Perfect! I'll bring my violin and some ideas I've been working on. Can't wait to jam!",
+    created_at: "2026-06-09T14:30:00Z",
+    is_read: false,
+  },
+
+  // ── Hugo ↔ Celeste chat ──────────────────────────────────────────
+  {
+    sender_id: USERS[32].id,
+    receiver_id: USERS[41].id,
+    content: "Celeste! J'ai écouté ton album de harpe ambient — c'est d'une beauté. Je travaille sur une pièce pour violoncelle et électronique qui aurait besoin de la texture de ta harpe. Ça te dit?",
+    created_at: "2026-06-07T14:00:00Z",
+    is_read: true,
+  },
+  {
+    sender_id: USERS[41].id,
+    receiver_id: USERS[32].id,
+    content: "Hugo, avec grand plaisir! Ta musique électroacoustique est fascinante. Je suis libre ce weekend si tu veux qu'on se trouve à Lyon pour travailler ensemble.",
+    created_at: "2026-06-07T16:00:00Z",
+    is_read: true,
+  },
+  {
+    sender_id: USERS[32].id,
+    receiver_id: USERS[41].id,
+    content: "Parfait! Je prends le train samedi matin. Apporte ta harpe — j'ai hâte d'entendre ce que ça donne avec mes nappes électroniques.",
+    created_at: "2026-06-07T18:00:00Z",
+    is_read: false,
+  },
+
+  // ── Amara ↔ Imani chat ───────────────────────────────────────────
+  {
+    sender_id: USERS[37].id,
+    receiver_id: USERS[49].id,
+    content: "Imani! I heard you singing at the Freedom Park open mic. You've got such raw talent — that blend of afrobeat and soul is special. I'd love to mentor you if you're interested.",
+    created_at: "2026-06-09T19:00:00Z",
+    is_read: true,
+  },
+  {
+    sender_id: USERS[49].id,
+    receiver_id: USERS[37].id,
+    content: "Amara! Thank you so much! I've been following your work with the gospel choir and I'm honestly starstruck. Yes please, I'd love any guidance you can offer. When can we start?",
+    created_at: "2026-06-09T20:30:00Z",
+    is_read: true,
+  },
+  {
+    sender_id: USERS[37].id,
+    receiver_id: USERS[49].id,
+    content: "Let's meet at my studio in Labadi this Saturday. Bring your djembe and any lyrics you've written. I'll show you some vocal techniques that'll help with your range. So proud of you already!",
+    created_at: "2026-06-09T21:00:00Z",
     is_read: false,
   },
 ];
