@@ -2,10 +2,11 @@
 
 import { useEffect, useState, useMemo } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 import { useAuth } from "@/lib/auth-context";
-import Avatar from "@/components/Avatar";
+import ExploreView from "@/components/ExploreView";
+import SwipeCardStack from "@/components/SwipeCardStack";
+import FilterDropdown from "@/components/FilterDropdown";
 import type { Connection } from "@/lib/database.types";
 
 type Profile = {
@@ -49,6 +50,9 @@ export default function DiscoverPage() {
   // Filter state
   const [filterInstrument, setFilterInstrument] = useState("");
   const [filterGenre, setFilterGenre] = useState("");
+
+  // View mode
+  const [viewMode, setViewMode] = useState<"explore" | "swipe">("swipe");
 
   // ── Derived state ──────────────────────────────────────────────
 
@@ -230,37 +234,6 @@ export default function DiscoverPage() {
     ]);
   };
 
-  // ── Determine featured profile ─────────────────────────────────
-
-  const featuredProfile = useMemo(() => {
-    if (filteredProfiles.length === 0) return null;
-    const scored = filteredProfiles.map((p) => ({
-      profile: p,
-      score:
-        (p.name ? 2 : 0) +
-        (p.bio ? 2 : 0) +
-        (p.instruments?.length ? 1 : 0) +
-        (p.genres?.length ? 1 : 0) +
-        (p.location ? 1 : 0),
-    }));
-    scored.sort((a, b) => b.score - a.score);
-    return scored[0].profile;
-  }, [filteredProfiles]);
-
-  const compactProfiles = useMemo(() => {
-    return filteredProfiles.filter((p) => p.id !== featuredProfile?.id);
-  }, [filteredProfiles, featuredProfile]);
-
-  // Split compact profiles into left/right columns
-  const leftProfiles = useMemo(
-    () => compactProfiles.filter((_, i) => i % 2 === 0),
-    [compactProfiles],
-  );
-  const rightProfiles = useMemo(
-    () => compactProfiles.filter((_, i) => i % 2 === 1),
-    [compactProfiles],
-  );
-
   // ── Render ─────────────────────────────────────────────────────
 
   if (authLoading) {
@@ -283,64 +256,98 @@ export default function DiscoverPage() {
         <div className="relative mx-auto max-w-6xl px-6 pb-16 pt-8">
 
           {/* Header */}
-          <div className="mb-12">
+          <div className="mb-8">
             <h1 className="heading-display text-foreground">Discover</h1>
           </div>
 
-          {/* Filter chips — inline, no card */}
-          {!isProfilesLoading && !profilesError && displayedProfiles.length > 0 && (
-            <div className="mb-14 flex flex-wrap items-center gap-2">
-              <button
-                onClick={() => setFilterInstrument("")}
-                className={
-                  "rounded-full border px-3 py-1 text-[11px] uppercase tracking-wider transition-colors " +
-                  (!filterInstrument
-                    ? "border-accent bg-accent/10 text-accent-light"
-                    : "border-border text-foreground hover:border-accent/50")
-                }
-              >
-                All
-              </button>
-              {uniqueInstruments.slice(0, 6).map((inst) => (
-                <button
-                  key={inst}
-                  onClick={() =>
-                    setFilterInstrument(filterInstrument === inst ? "" : inst)
+          {/* ── View toggle ────────────────────────────────────── */}
+          <div className="mb-6 flex items-center gap-3">
+            <button
+              onClick={() => setViewMode("swipe")}
+              className={
+                "text-xs uppercase tracking-wider transition-colors " +
+                (viewMode === "swipe"
+                  ? "text-accent-light"
+                  : "text-muted hover:text-foreground")
+              }
+            >
+              Swipe
+            </button>
+            <span className="text-[10px] text-muted-light">|</span>
+            <button
+              onClick={() => setViewMode("explore")}
+              className={
+                "text-xs uppercase tracking-wider transition-colors " +
+                (viewMode === "explore"
+                  ? "text-accent-light"
+                  : "text-muted hover:text-foreground")
+              }
+            >
+              Explore
+            </button>
+          </div>
+
+          {/* ── Filters — only in Explore ─────────────────────── */}
+          {viewMode === "explore" && !isProfilesLoading && !profilesError && displayedProfiles.length > 0 && (
+            <div className="mb-14">
+              {/* Dropdown triggers */}
+              <div className="flex flex-wrap items-center gap-2">
+                <FilterDropdown
+                  label="Instruments"
+                  options={uniqueInstruments}
+                  selected={filterInstrument}
+                  onSelect={(value) =>
+                    setFilterInstrument(filterInstrument === value ? "" : value)
                   }
-                  className={
-                    "rounded-full border px-3 py-1 text-[11px] uppercase tracking-wider transition-colors " +
-                    (filterInstrument === inst
-                      ? "border-accent bg-accent/10 text-accent-light"
-                      : "border-border text-foreground hover:border-accent/50")
+                />
+                <FilterDropdown
+                  label="Genres"
+                  options={uniqueGenres}
+                  selected={filterGenre}
+                  onSelect={(value) =>
+                    setFilterGenre(filterGenre === value ? "" : value)
                   }
-                >
-                  {inst}
-                </button>
-              ))}
-              <span className="mx-1 text-[10px] text-muted-light">|</span>
-              {uniqueGenres.slice(0, 4).map((g) => (
-                <button
-                  key={g}
-                  onClick={() =>
-                    setFilterGenre(filterGenre === g ? "" : g)
-                  }
-                  className={
-                    "rounded-full border px-3 py-1 text-[11px] uppercase tracking-wider transition-colors " +
-                    (filterGenre === g
-                      ? "border-accent bg-accent/10 text-accent-light"
-                      : "border-border text-foreground hover:border-accent/50")
-                  }
-                >
-                  {g}
-                </button>
-              ))}
-              {hasActiveFilters && (
-                <button
-                  onClick={() => { setFilterInstrument(""); setFilterGenre(""); }}
-                  className="text-[11px] text-foreground underline underline-offset-2 transition-colors hover:text-accent-light"
-                >
-                  Clear
-                </button>
+                />
+              </div>
+
+              {/* Active filter chips (removable) */}
+              {(filterInstrument || filterGenre) && (
+                <div className="mt-3 flex flex-wrap items-center gap-2">
+                  {filterInstrument && (
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-accent bg-accent/10 px-3 py-1 text-[11px] uppercase tracking-wider text-accent-light">
+                      {filterInstrument}
+                      <button
+                        onClick={() => setFilterInstrument("")}
+                        className="text-accent-light/60 hover:text-accent-light transition-colors"
+                        aria-label={`Remove ${filterInstrument} filter`}
+                      >
+                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+                          <path d="M2 2l6 6M8 2l-6 6" />
+                        </svg>
+                      </button>
+                    </span>
+                  )}
+                  {filterGenre && (
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-accent bg-accent/10 px-3 py-1 text-[11px] uppercase tracking-wider text-accent-light">
+                      {filterGenre}
+                      <button
+                        onClick={() => setFilterGenre("")}
+                        className="text-accent-light/60 hover:text-accent-light transition-colors"
+                        aria-label={`Remove ${filterGenre} filter`}
+                      >
+                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+                          <path d="M2 2l6 6M8 2l-6 6" />
+                        </svg>
+                      </button>
+                    </span>
+                  )}
+                  <button
+                    onClick={() => { setFilterInstrument(""); setFilterGenre(""); }}
+                    className="text-[11px] text-foreground underline underline-offset-2 transition-colors hover:text-accent-light"
+                  >
+                    Clear filters
+                  </button>
+                </div>
               )}
             </div>
           )}
@@ -350,202 +357,30 @@ export default function DiscoverPage() {
             <p className="mb-6 text-xs text-danger">{connectError}</p>
           )}
 
-          {/* Featured profile */}
-          {!isProfilesLoading && !profilesError && featuredProfile && (
-            <div className="border-t border-border pt-8">
-              <span className="label">Featured</span>
-
-              {(() => {
-                const p = featuredProfile;
-                const sent = sentIds.has(p.id);
-                const received = receivedIds.has(p.id);
-                const isMatched = sent && received;
-                const isPending = sent && !received;
-                const isConnecting = connectingId === p.id;
-
-                return (
-                  <div className="mt-4 grid gap-6 lg:grid-cols-5">
-                    {/* Text */}
-                    <div className="lg:col-span-3">
-                      <h2 className="heading text-2xl sm:text-3xl lg:text-4xl text-foreground">
-                        <Link href={"/profile/" + p.id} className="hover:underline decoration-accent/30 underline-offset-4">
-                          {p.name ?? "Unknown"}
-                        </Link>
-                      </h2>
-
-                      {p.instruments && p.instruments.length > 0 && (
-                        <div className="mt-2 flex flex-wrap gap-1.5">
-                          {p.instruments.map((i) => (
-                            <span key={i} className="text-xs text-muted-light">
-                              {i}
-                            </span>
-                          ))}
-                        </div>
-                      )}
-
-                      {p.bio && (
-                        <p className="mt-3 max-w-prose text-sm leading-relaxed text-foreground">
-                          {p.bio}
-                        </p>
-                      )}
-
-                      <div className="mt-4 flex items-center gap-3">
-                        {isMatched ? (
-                          <span className="text-xs text-accent-light">Connected</span>
-                        ) : isPending ? (
-                          <span className="text-xs text-muted-light">Pending</span>
-                        ) : (
-                          <button
-                            onClick={(e) => { e.preventDefault(); handleConnect(p.id); }}
-                            disabled={isConnecting}
-                            className="inline-flex items-center gap-1.5 rounded-full border border-accent/50 px-5 py-1.5 text-xs text-accent-light transition-all hover:bg-accent hover:text-background"
-                          >
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-                            </svg>
-                            {isConnecting ? "Connecting..." : "Connect"}
-                          </button>
-                        )}
-                        <Link
-                          href={"/profile/" + p.id}
-                          className="text-xs text-foreground underline underline-offset-2 transition-colors hover:text-accent-light"
-                        >
-                          View profile
-                        </Link>
-                      </div>
-                    </div>
-
-                    {/* Visual — avatar / album-art area */}
-                    <div className="hidden lg:col-span-1 lg:block">
-                      <div className="aspect-square overflow-hidden rounded-xl bg-linear-to-br from-accent-secondary/20 via-accent/5 to-surface-elevated">
-                        <Avatar
-                          avatarUrl={p.avatar_url}
-                          id={p.id}
-                          alt={p.name ?? ""}
-                          className="h-full w-full object-cover"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                );
-              })()}
-            </div>
+          {/* ── View content ───────────────────────────────── */}
+          {!isProfilesLoading && !profilesError && filteredProfiles.length > 0 && (
+            viewMode === "explore" ? (
+              <ExploreView
+                profiles={filteredProfiles}
+                sentIds={sentIds}
+                receivedIds={receivedIds}
+                connectingId={connectingId}
+                onConnect={handleConnect}
+                onViewProfile={(id) => router.push(`/profile/${id}`)}
+              />
+            ) : (
+              <SwipeCardStack
+                key={`swipe-${filterInstrument}-${filterGenre}`}
+                profiles={filteredProfiles}
+                sentIds={sentIds}
+                connectingId={connectingId}
+                onConnect={handleConnect}
+                onViewProfile={(id) => router.push(`/profile/${id}`)}
+              />
+            )
           )}
         </div>
       </section>
-
-      {/* ── More Musicians ─────────────────────────────────────────── */}
-      {!isProfilesLoading && !profilesError && compactProfiles.length > 0 && (
-        <section className="mx-auto max-w-6xl px-6 pb-24">
-          <div className="border-t border-border pt-8">
-            <span className="label">More musicians</span>
-          </div>
-
-          <div className="mt-8 grid gap-6 lg:grid-cols-2">
-            {/* Left column */}
-            <div className="flex flex-col">
-              {leftProfiles.map((p) => {
-                const sent = sentIds.has(p.id);
-                const received = receivedIds.has(p.id);
-                const isMatched = sent && received;
-                const isPending = sent && !received;
-                const isConnecting = connectingId === p.id;
-                return (
-                  <Link
-                    key={p.id}
-                    href={"/profile/" + p.id}
-                    className="group flex items-center gap-4 border-b border-border/50 py-4 transition-colors hover:border-accent/30"
-                  >
-                    <Avatar
-                      avatarUrl={p.avatar_url}
-                      id={p.id}
-                      alt=""
-                      className="h-12 w-12 shrink-0 rounded-full bg-accent-secondary/10 object-cover"
-                    />
-                    <div className="min-w-0 flex-1">
-                      <p className="heading text-base text-foreground group-hover:text-accent-secondary transition-colors">
-                        {p.name ?? "Unknown"}
-                      </p>
-                      <p className="mt-0.5 truncate text-xs text-muted">
-                        {p.instruments?.join(", ")}
-                      </p>
-                    </div>
-                    <div className="shrink-0">
-                      {isMatched ? (
-                        <span className="text-[11px] text-accent-light">Connected</span>
-                      ) : isPending ? (
-                        <span className="text-[11px] text-muted-light">Pending</span>
-                      ) : (
-                        <button
-                          onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleConnect(p.id); }}
-                          disabled={isConnecting}
-                          className="inline-flex items-center gap-1 rounded-full border border-border px-3 py-1 text-[11px] text-foreground transition-colors hover:border-accent/50"
-                        >
-                          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-                          </svg>
-                          {isConnecting ? "..." : "Connect"}
-                        </button>
-                      )}
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
-
-            {/* Right column */}
-            <div className="flex flex-col">
-              {rightProfiles.map((p) => {
-                const sent = sentIds.has(p.id);
-                const received = receivedIds.has(p.id);
-                const isMatched = sent && received;
-                const isPending = sent && !received;
-                const isConnecting = connectingId === p.id;
-                return (
-                  <Link
-                    key={p.id}
-                    href={"/profile/" + p.id}
-                    className="group flex items-center gap-4 border-b border-border/50 py-4 transition-colors hover:border-accent/30"
-                  >
-                    <Avatar
-                      avatarUrl={p.avatar_url}
-                      id={p.id}
-                      alt=""
-                      className="h-12 w-12 shrink-0 rounded-full bg-accent-secondary/10 object-cover"
-                    />
-                    <div className="min-w-0 flex-1">
-                      <p className="heading text-base text-foreground group-hover:text-accent-secondary transition-colors">
-                        {p.name ?? "Unknown"}
-                      </p>
-                      <p className="mt-0.5 truncate text-xs text-muted">
-                        {p.instruments?.join(", ")}
-                      </p>
-                    </div>
-                    <div className="shrink-0">
-                      {isMatched ? (
-                        <span className="text-[11px] text-accent-light">Connected</span>
-                      ) : isPending ? (
-                        <span className="text-[11px] text-muted-light">Pending</span>
-                      ) : (
-                        <button
-                          onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleConnect(p.id); }}
-                          disabled={isConnecting}
-                          className="inline-flex items-center gap-1 rounded-full border border-border px-3 py-1 text-[11px] text-foreground transition-colors hover:border-accent/50"
-                        >
-                          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-                          </svg>
-                          {isConnecting ? "..." : "Connect"}
-                        </button>
-                      )}
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* ── Loading ──────────────────────────────────────── */}
       {isProfilesLoading && (
