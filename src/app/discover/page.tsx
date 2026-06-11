@@ -128,6 +128,29 @@ export default function DiscoverPage() {
 
   const hasActiveFilters = filterInstrument !== "" || filterGenre !== "";
 
+  // Connected profiles (any direction) — excluded from swipe
+  const connectedIds = useMemo(() => {
+    const ids = new Set<string>();
+    for (const id of sentIds) ids.add(id);
+    for (const id of receivedIds) ids.add(id);
+    return ids;
+  }, [sentIds, receivedIds]);
+
+  // Swipe-only profiles — exclude connected, randomize order
+  const swipeProfiles = useMemo(
+    () => filteredProfiles.filter((p) => !connectedIds.has(p.id)),
+    [filteredProfiles, connectedIds],
+  );
+
+  const randomizedSwipeProfiles = useMemo(() => {
+    const shuffled = [...swipeProfiles];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+  }, [swipeProfiles]);
+
   // ── Auth guard ─────────────────────────────────────────────────
 
   useEffect(() => {
@@ -371,7 +394,7 @@ export default function DiscoverPage() {
             ) : (
               <SwipeCardStack
                 key={`swipe-${filterInstrument}-${filterGenre}`}
-                profiles={filteredProfiles}
+                profiles={randomizedSwipeProfiles}
                 sentIds={sentIds}
                 connectingId={connectingId}
                 onConnect={handleConnect}

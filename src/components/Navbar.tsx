@@ -39,6 +39,7 @@ export default function Navbar() {
   // Derive from user — null/0 when logged out, no effect needed
   const profileAvatarUrl = user ? fetchedAvatarUrl : null;
   const displayUnreadCount = user ? unreadCount : 0;
+  const displayPendingRequestCount = user ? pendingRequestCount : 0;
 
   // Close dropdown on outside click
   useEffect(() => {
@@ -133,6 +134,15 @@ export default function Navbar() {
     };
   }, [user, pathname]);
 
+  // ── Reset fetch-based state on logout ──────────────────────────
+  useEffect(() => {
+    if (!user) {
+      setFetchedAvatarUrl(null);
+      setUnreadCount(0);
+      setPendingRequestCount(0);
+    }
+  }, [user]);
+
   return (
     <nav className="fixed top-0 z-50 w-full border-b border-border/30 bg-background/70 backdrop-blur-xl">
       <div className="mx-auto flex h-12 max-w-6xl items-center justify-between px-6">
@@ -149,7 +159,7 @@ export default function Navbar() {
           <NavLink href="/">Home</NavLink>
           <NavLink href="/discover">Discover</NavLink>
           <NavLink href="/messages" badge={displayUnreadCount}>Messages</NavLink>
-          <NavLink href="/requests" badge={pendingRequestCount}>Requests</NavLink>
+          <NavLink href="/requests" badge={displayPendingRequestCount}>Requests</NavLink>
 
           <div className="flex items-center gap-2 pl-3">
             {loading ? (
@@ -199,7 +209,7 @@ export default function Navbar() {
               /* Logged out */
               <>
                 <Link
-                  href="/login"
+                  href="/login?tab=login"
                   className="text-xs font-medium text-foreground transition-colors"
                 >
                   Log In
@@ -259,7 +269,7 @@ export default function Navbar() {
             <MobileNavLink
               href="/requests"
               onClick={() => setIsMobileOpen(false)}
-              badge={pendingRequestCount}
+              badge={displayPendingRequestCount}
             >
               Requests
             </MobileNavLink>
@@ -296,7 +306,7 @@ export default function Navbar() {
             ) : (
               <>
                 <Link
-                  href="/login"
+                  href="/login?tab=login"
                   className="text-xs font-medium text-foreground transition-colors"
                   onClick={() => setIsMobileOpen(false)}
                 >

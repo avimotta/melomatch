@@ -28,6 +28,7 @@ export default function ProfilePage() {
   const [influences, setInfluences] = useState("");
   const [location, setLocation] = useState("");
   const [bio, setBio] = useState("");
+  const [audioUrl, setAudioUrl] = useState("");
 
   // Avatar state (optimistic for instant refresh)
   const [localAvatarUrl, setLocalAvatarUrl] = useState<string | null>(null);
@@ -83,6 +84,7 @@ export default function ProfilePage() {
       setInfluences(data.influences ?? "");
       setLocation(data.location ?? "");
       setBio(data.bio ?? "");
+      setAudioUrl(data.audio_url ?? "");
       setLoading(false);
     };
 
@@ -132,6 +134,7 @@ export default function ProfilePage() {
         influences: influences.trim() || null,
         location: location.trim() || null,
         bio: bio.trim() || null,
+        audio_url: audioUrl.trim() || null,
       })
       .eq("id", user.id);
 
@@ -372,6 +375,20 @@ export default function ProfilePage() {
                     placeholder="Tell other musicians about yourself..."
                     className="w-full resize-none border-b border-border bg-transparent px-0 py-3 text-base text-foreground placeholder:text-muted-dim transition-colors focus:border-accent focus:outline-none"
                   />
+                </div>
+
+                {/* Featured Track URL */}
+                <div>
+                  <label htmlFor="audio_url" className="mb-2 block label">Featured Track</label>
+                  <input
+                    id="audio_url"
+                    type="url"
+                    value={audioUrl}
+                    onChange={(e) => setAudioUrl(e.target.value)}
+                    placeholder="https://soundcloud.com/artist/track"
+                    className="w-full border-b border-border bg-transparent px-0 py-3 text-base text-foreground placeholder:text-muted-dim transition-colors focus:border-accent focus:outline-none"
+                  />
+                  <p className="mt-1.5 text-xs text-muted-light">Paste a link to your music (SoundCloud, Spotify, etc.)</p>
                 </div>
 
                 {/* Submit */}

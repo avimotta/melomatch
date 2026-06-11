@@ -54,7 +54,7 @@ export default function PublicProfilePage() {
 
       const { data, error: fetchError } = await supabase
         .from("profiles")
-        .select("id, name, avatar_url, instruments, genres, location, bio, influences, looking_for, experience_level, email")
+        .select("id, name, avatar_url, instruments, genres, location, bio, influences, looking_for, experience_level, email, audio_url")
         .eq("id", profileId)
         .single();
 
@@ -322,6 +322,9 @@ export default function PublicProfilePage() {
                     </button>
                   )}
                 </div>
+
+                {/* ── Featured Track ──────────────────────────── */}
+                {profile.audio_url && <FeaturedTrack url={profile.audio_url} />}
               </div>
 
               {/* Visual column — avatar */}
@@ -347,5 +350,88 @@ export default function PublicProfilePage() {
         </div>
       )}
     </main>
+  );
+}
+
+// ── Featured Track embed ──────────────────────────────────────────
+
+function getEmbedUrl(url: string): string | null {
+  try {
+    const parsed = new URL(url);
+
+    // SoundCloud
+    if (
+      parsed.hostname === "soundcloud.com" ||
+      parsed.hostname.endsWith(".soundcloud.com")
+    ) {
+      return `https://w.soundcloud.com/player/?url=${encodeURIComponent(url)}&show_comments=false&auto_play=false`;
+    }
+
+    // Spotify
+    if (parsed.hostname === "open.spotify.com") {
+      const match = url.match(
+        /\/(track|album|playlist|episode)\/([a-zA-Z0-9]+)/,
+      );
+      if (match) {
+        return `https://open.spotify.com/embed/${match[1]}/${match[2]}`;
+      }
+    }
+
+    return null;
+  } catch {
+    return null;
+  }
+}
+
+function FeaturedTrack({ url }: { url: string }) {
+  const embedUrl = getEmbedUrl(url);
+  const isSpotify = embedUrl?.includes("spotify.com");
+
+  return (
+    <div className="mt-8 border-t border-border pt-6">
+      <p className="text-xs font-medium text-muted-light uppercase tracking-wider">
+        Featured Track
+      </p>
+
+      {/* Embed player */}
+      {embedUrl && (
+        <div className="mt-4">
+          <iframe
+            src={embedUrl}
+            width="100%"
+            height={isSpotify ? 80 : 166}
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
+            loading="lazy"
+            style={{ border: 0 }}
+            className="rounded-lg"
+            title="Featured track audio player"
+          />
+        </div>
+      )}
+
+      {/* Listen button — always shown, opens in new tab */}
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-accent/50 px-5 py-2 text-xs text-accent-light transition-all hover:bg-accent hover:text-background"
+      >
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M9 18V5l12-2v13" />
+          <circle cx="6" cy="18" r="3" />
+          <circle cx="18" cy="16" r="3" />
+        </svg>
+        Listen
+      </a>
+    </div>
   );
 }

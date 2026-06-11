@@ -22,6 +22,7 @@ export type Profile = {
   location: string | null;
   bio: string | null;
   email: string | null;
+  audio_url: string | null;
 };
 
 export type ProfileInsert = {
@@ -36,6 +37,7 @@ export type ProfileInsert = {
   influences?: string | null;
   location?: string | null;
   bio?: string | null;
+  audio_url?: string | null;
 };
 
 export type ProfileUpdate = {
@@ -48,6 +50,7 @@ export type ProfileUpdate = {
   influences?: string | null;
   location?: string | null;
   bio?: string | null;
+  audio_url?: string | null;
 };
 
 export type Connection = {
